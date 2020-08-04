@@ -1,10 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import './menu-item.styles.scss';
 
 
 
-const MenuItem = ({ title, imageUrl, size }) => (
-    <div className={`${size} menu-item`}>
+// Menu Item component
+// Destructing
+// props -> { title, imageUrl, size, linkUrl }
+const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => (
+    <div className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)} >
         <div className='background-image' style={{backgroundImage: `url(${imageUrl})`}} />
 
         <div className='content'>
@@ -16,4 +20,6 @@ const MenuItem = ({ title, imageUrl, size }) => (
 
 
 
-export default MenuItem;
+// withRouter - avoids props tunneling
+// by providing access the props: history, location, match
+export default withRouter(MenuItem);
