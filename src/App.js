@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shop/shop.component.jsx';
+import ShopPage from "./pages/shop/shop.component";
+import Header from "./components/header/header.component";
 import './App.css';
 
 
@@ -10,6 +11,9 @@ import './App.css';
 function App() {
   return (
     <div className='App'>
+        {/* Header */}
+        <Header />
+
         {/* Switch ensure when one Route matches, remaining won't be rendered */}
         <Switch>
             {/* Only the first component passing to the route has access to Route props:  */}
