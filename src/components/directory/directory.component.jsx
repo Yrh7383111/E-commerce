@@ -5,7 +5,8 @@ import './directory.styles.scss';
 
 
 // Directory component that contains all the Menu Items
-class Directory extends React.Component {
+class Directory extends React.Component
+{
     constructor(props)
     {
         super(props);
@@ -55,7 +56,7 @@ class Directory extends React.Component {
             <div className='directory-menu'>
                 {/* Destructing */}
                 {/* section -> { id, title, imageUrl, size, linkUrl } */}
-                {/* ...otherProps - remaining properties in sections with the same name passed through */}
+                {/* ...otherProps - remaining properties in section with the same name passed through */}
                 {this.state.sections.map(({ id, ...otherProps }) => (
                     <MenuItem key={id} {...otherProps} />
                 ))}

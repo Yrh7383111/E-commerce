@@ -4,7 +4,8 @@ import CollectionPreview from "../../components/collection-preview/collection-pr
 
 
 
-class ShopPage extends React.Component {
+class ShopPage extends React.Component
+{
     constructor(props)
     {
         super(props);
@@ -15,13 +16,15 @@ class ShopPage extends React.Component {
     }
 
 
-    render() {
+    render()
+    {
         // Object destructing
         const { collections } = this.state;
 
         return (
             <div className='shop-page'>
                 {/* Object destructing */}
+                {/* ...otherProps - remaining properties in collection with the same name passed through */}
                 {collections.map(({ id, ...otherProps }) => (
                     <CollectionPreview key={id} {...otherProps} />
                 ))}
