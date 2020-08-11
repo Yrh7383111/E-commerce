@@ -19,6 +19,48 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
+// Function to persist a new user in the database
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+    // Safety check to ensure userAuth exists
+    if (!userAuth)
+        return;
+
+    // Else
+    // Query Reference (Controller) - object that represents the current place in the database
+    // Only Query Reference can perform CRUD operations
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+    // Query Snapshot
+    // Actual data in the database
+    const userSnapShot = await userRef.get();
+
+    // If there is no user with associated uid exists in the database
+    // Then, persist one
+    if (!userSnapShot.exists)
+    {
+        const createdAt = new Date();
+        // Object destructing
+        const { displayName, email } = userAuth;
+
+        try
+        {
+            await userRef.set({
+                createdAt,
+                displayName,
+                email,
+                ...additionalData
+            });
+        }
+        catch (error)
+        {
+            console.log('error creating user', error.message);
+        }
+    }
+
+    return userRef;
+};
+
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
