@@ -32,6 +32,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     const userRef = firestore.doc(`users/${userAuth.uid}`);
     // Query Snapshot
     // Actual data in the database
+    // CRUD - Retrieve
     const userSnapShot = await userRef.get();
 
     // If there is no user with associated uid exists in the database
@@ -44,6 +45,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
         try
         {
+            // CRUD - Create
             await userRef.set({
                 createdAt,
                 displayName,
@@ -53,7 +55,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         }
         catch (error)
         {
-            console.log('error creating user', error.message);
+            console.log(error);
         }
     }
 
