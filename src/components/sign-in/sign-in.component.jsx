@@ -30,27 +30,27 @@ class SignIn extends React.Component {
     };
 
     // Handle when user submit the form
-    // handleSubmit = async event => {
-    //     // Prevent default submit function of the browser
-    //     event.preventDefault();
-    //
-    //     // Object destructing
-    //     const { email, password } = this.state;
-    //
-    //     try
-    //     {
-    //         // Firebase Authentication
-    //         // Sign in with email and password
-    //         await auth.signInWithEmailAndPassword(email, password);
-    //
-    //         // Clean up the data in each field
-    //         this.setState({ email: '', password: '' });
-    //     }
-    //     catch (error)
-    //     {
-    //         console.log(error);
-    //     }
-    // };
+    handleSubmit = async event => {
+        // Prevent default submit function of the browser
+        event.preventDefault();
+
+        // Object destructing
+        const { email, password } = this.state;
+
+        try
+        {
+            // Firebase Authentication
+            // Sign in with email and password
+            await auth.signInWithEmailAndPassword(email, password);
+
+            // Clean up the data in each field
+            this.setState({ email: '', password: '' });
+        }
+        catch (error)
+        {
+            console.log(error);
+        }
+    };
 
 
     // Rendering

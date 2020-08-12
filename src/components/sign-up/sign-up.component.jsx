@@ -30,41 +30,41 @@ class SignUp extends React.Component {
     };
 
     // Handle when user submit the form
-    // handleSubmit = async event => {
-    //     // Prevent default submit function of the browser
-    //     event.preventDefault();
-    //
-    //     // Object destructing
-    //     const { displayName, email, password, confirmPassword } = this.state;
-    //
-    //     if (password !== confirmPassword)
-    //     {
-    //         console.log("Passwords don't match")
-    //         return;
-    //     }
-    //     // Else
-    //     try
-    //     {
-    //         // Firebase Authentication
-    //         // Object destructing
-    //         // Create an account with email and password by using Firebase built-in function
-    //         const { user } = await auth.createUserWithEmailAndPassword(email, password);
-    //
-    //         // Firebase Authentication
-    //         // Persist data in the database
-    //         await createUserProfileDocument(user, { displayName });
-    //
-    //         // Clean up forms
-    //         this.setState({
-    //             displayName: '',
-    //             email: '',
-    //             password: '',
-    //             confirmPassword: ''
-    //         });
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // };
+    handleSubmit = async event => {
+        // Prevent default submit function of the browser
+        event.preventDefault();
+
+        // Object destructing
+        const { displayName, email, password, confirmPassword } = this.state;
+
+        if (password !== confirmPassword)
+        {
+            console.log("Passwords don't match")
+            return;
+        }
+        // Else
+        try
+        {
+            // Firebase Authentication
+            // Object destructing
+            // Create an account with email and password by using Firebase built-in function
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
+
+            // Firebase Authentication
+            // Persist data in the database
+            await createUserProfileDocument(user, { displayName });
+
+            // Clean up forms
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
     // Rendering
