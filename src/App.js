@@ -5,6 +5,8 @@ import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/user/user.actions';
 import './App.css';
 
 
@@ -12,16 +14,6 @@ import './App.css';
 // App component
 class App extends React.Component
 {
-    // Constructor
-    constructor(props)
-    {
-        super(props);
-
-        this.state = {
-            currentUser: null
-        };
-    }
-
     // Function - unsubscribe the current user
     unsubscribeFromAuth = null;
 
@@ -29,6 +21,8 @@ class App extends React.Component
     // Called when the component is first mounted
     componentDidMount()
     {
+        const { setCurrentUser } = this.props;
+
         this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
             // If userAuth exists
             // Then set the state of currentUser
@@ -37,16 +31,14 @@ class App extends React.Component
                 const userRef = await createUserProfileDocument(userAuth);
 
                 userRef.onSnapshot(snapShot => {
-                    this.setState({
-                        currentUser: {
-                            id: snapShot.id,
-                            ...snapShot.data()
-                        }
+                    setCurrentUser({
+                        id: snapShot.id,
+                        ...snapShot.data()
                     });
                 });
             }
             else {
-                this.setState({ currentUser: userAuth });
+                setCurrentUser(userAuth);
             }
         });
     }
@@ -65,7 +57,7 @@ class App extends React.Component
         return (
             <div>
                 {/* Header */}
-                <Header currentUser={this.state.currentUser} />
+                <Header />
 
                 {/* Switch ensure when one Route matches, remaining won't be rendered */}
                 <Switch>
@@ -81,5 +73,13 @@ class App extends React.Component
 }
 
 
+// Retrieve props from Root Reducers
+const mapDispatchToProps = dispatch => ({
+    // setCurrentUser(user) - return an Action object
+    // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
+    setCurrentUser: user => dispatch(setCurrentUser(user))
+});
 
-export default App;
+
+
+export default connect(null, mapDispatchToProps)(App);

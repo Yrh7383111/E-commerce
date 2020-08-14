@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 // ReactComponent indicates we want to build a React component that renders an SVG.
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from "../../firebase/firebase.utils";
+import { connect } from 'react-redux';
 import './header.styles.scss';
 
 
@@ -36,5 +37,12 @@ const Header = ({ currentUser }) => (
 );
 
 
+// Retrieve props from Root Reducers
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+})
 
-export default Header;
+
+
+// First parameter of connect() - If the component needs the props
+export default connect(mapStateToProps)(Header);
