@@ -3,8 +3,9 @@ import './custom-button.styles.scss';
 
 
 
-const CustomButton = ({ isGoogleSignIn, children, ...otherProps }) => (
-    <button className={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...otherProps}>
+const CustomButton = ({ inverted, isGoogleSignIn, children, ...otherProps }) => (
+    // String interpolation
+    <button className={`${inverted ? 'inverted' : ''} ${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...otherProps}>
         {/* children - the text between the component */}
         {/* Example: <CustomButton type='submit'> Sign in </CustomButton> */}
         {/* In this case, children is "Sign in" */}

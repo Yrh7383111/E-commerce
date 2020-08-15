@@ -1,22 +1,37 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import CustomButton from "../custom-button/custom-button.component";
+import { addItem } from "../../redux/cart/cart.actions";
 import './collection-item.styles.scss';
 
 
 
 // Collection Item component
 // Destructing
-// props -> { name, imageUrl, price }
-const CollectionItem = ({ name, imageUrl, price }) => (
-    <div className='collection-item'>
-        <div className='image' style={{backgroundImage: `url(${imageUrl})`}} />
+// this.props -> { name, imageUrl, price }
+const CollectionItem = ({item, addItem}) => {
+    // Object destructing
+    const { name, price, imageUrl } = item;
 
-        <div className='collection-footer'>
-            <span className='name'>{name}</span>
-            <span className='price'>{price}</span>
+    return (
+        <div className='collection-item'>
+            <div className='image' style={{backgroundImage: `url(${imageUrl})`}} />
+
+            <div className='collection-footer'>
+                <span className='name'>{name}</span>
+                <span className='price'>{price}</span>
+            </div>
+
+            <CustomButton inverted onClick={() => addItem(item)}>Add to Cart</CustomButton>
         </div>
-    </div>
-);
+)};
 
 
+// App component will do some Actions to change the cartItems property of the cart in the store
+// Dispatch state to all Reducers
+const mapDispatchToProps = dispatch => ({
+        addItem: item => dispatch(addItem(item))
+});
 
-export default CollectionItem;
+
+export default connect(null, mapDispatchToProps) (CollectionItem);

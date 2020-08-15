@@ -14,7 +14,7 @@ const CartIcon = ({ toggleCartHidden }) => (
 );
 
 
-// Cart Icon component will do some Actions to change the state in Root Reducers
+// Cart Icon component will do some Actions to change the hidden property of the cart in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
     // setCurrentUser(user) - return an Action object

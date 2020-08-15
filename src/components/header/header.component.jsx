@@ -43,7 +43,7 @@ const Header = ({ currentUser, hidden }) => (
 
 
 // Header component needs currentUser prop
-// Retrieve props from Root Reducers
+// Retrieve props from store
 const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
     currentUser: currentUser,
     hidden: hidden

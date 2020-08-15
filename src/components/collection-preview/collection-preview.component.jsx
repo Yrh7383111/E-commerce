@@ -5,8 +5,8 @@ import './collection-preview.styles.scss'
 
 
 // Collection Preview component
-// Destructing
-// props -> { title, items }
+// Object destructing
+// this.props -> { title, items }
 const CollectionPreview = ({ title, items }) => (
     <div className='collection-preview'>
         <h1 className='title'>{title.toUpperCase()}</h1>
@@ -14,9 +14,9 @@ const CollectionPreview = ({ title, items }) => (
         <div className='preview'>
             {items.filter((item, index) => index < 4)
                 // Object destructing
-                .map(({ id, ...otherProps }) => (
+                .map(item => (
                     // ...otherProps - remaining properties in item with the same name passed through
-                    <CollectionItem key={id} {...otherProps} />
+                    <CollectionItem key={item.id} item={item} />
                 ))}
         </div>
     </div>

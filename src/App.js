@@ -80,12 +80,12 @@ class App extends React.Component
 
 
 // App component needs currentUser prop
-// Retrieve props from Root Reducers
+// Retrieve props from store
 const mapStateToProps = ({ user }) => ({
     currentUser: user.currentUser
 });
 
-// App component will do some Actions to change cart state in Root Reducers
+// App component will do some Actions to change the currentUser property of the user in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
     // setCurrentUser(user) - return an Action object
