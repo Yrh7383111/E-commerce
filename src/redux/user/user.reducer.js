@@ -1,3 +1,7 @@
+import { UserActionTypes } from "./user.types";
+
+
+
 // Initial state of currentUser
 const INITIAL_STATE = {
     currentUser: null
@@ -10,7 +14,7 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
     const type = action.type;
 
     // Change the currentUser
-    if (type === 'SET_CURRENT_USER')
+    if (type === UserActionTypes.SET_CURRENT_USER)
     {
         return {
             // The order matters!!!

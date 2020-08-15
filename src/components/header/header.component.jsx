@@ -11,7 +11,7 @@ import './header.styles.scss';
 
 
 // Object destructing - this.props
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
     <div className='header'>
         <Link className='logo-container' to='/'>
             <Logo className='logo' />
@@ -37,14 +37,16 @@ const Header = ({ currentUser }) => (
             }
             <CartIcon />
         </div>
-        <CartDropdown />
+        { hidden ? null : <CartDropdown /> }
     </div>
 );
 
 
+// Header component needs currentUser prop
 // Retrieve props from Root Reducers
-const mapStateToProps = ({ user }) => ({
-    currentUser: user.currentUser
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+    currentUser: currentUser,
+    hidden: hidden
 })
 
 
