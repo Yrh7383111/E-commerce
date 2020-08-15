@@ -8,6 +8,7 @@ import './header.styles.scss';
 
 
 
+// Object destructing - this.props
 const Header = ({ currentUser }) => (
     <div className='header'>
         <Link className='logo-container' to='/'>
@@ -31,15 +32,15 @@ const Header = ({ currentUser }) => (
                 <Link className='option' to='/signin'>
                     SIGN IN
                 </Link>
-                }
+            }
         </div>
     </div>
 );
 
 
 // Retrieve props from Root Reducers
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+const mapStateToProps = ({ user }) => ({
+    currentUser: user.currentUser
 })
 
 
