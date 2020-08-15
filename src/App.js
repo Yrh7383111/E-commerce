@@ -79,11 +79,12 @@ class App extends React.Component
 }
 
 
+// Retrieve props from Root Reducers
 const mapStateToProps = ({ user }) => ({
     currentUser: user.currentUser
 });
 
-// Retrieve props from Root Reducers
+// Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
     // setCurrentUser(user) - return an Action object
     // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
