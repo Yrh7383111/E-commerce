@@ -36,7 +36,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             cartItems: addItemToCart(currentState.cartItems, action.payload)
         };
     }
-    // Default state - the same with hidden as true
+    // Default state
     else {
         return currentState;
     }

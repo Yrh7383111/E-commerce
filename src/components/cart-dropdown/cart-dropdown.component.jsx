@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import CustomButton from '../custom-button/custom-button.component';
 import CartItem from "../cart-item/cart-item.component";
+import {selectCartItems} from "../../redux/cart/cart.selectors";
 import './cart-dropdown.styles.scss';
 
 
@@ -21,8 +22,9 @@ const CartDropdown = ({ cartItems }) => (
 
 // Cart Dropdown component needs cartItems prop
 // Retrieve props from store
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-    cartItems: cartItems
+const mapStateToProps = state => ({
+    // Caching - Memoization on Cart Dropdown component
+    cartItems: selectCartItems(state)
 });
 
 
