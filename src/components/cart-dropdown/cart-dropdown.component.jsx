@@ -6,11 +6,12 @@ import CustomButton from '../custom-button/custom-button.component';
 import CartItem from "../cart-item/cart-item.component";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 import './cart-dropdown.styles.scss';
+import {toggleCartHidden} from "../../redux/cart/cart.actions";
 
 
 
 // Cart Dropdown component that contains all the Cart Items
-const CartDropdown = ({ cartItems, history }) => (
+const CartDropdown = ({ cartItems, history, toggleCartHidden }) => (
     <div className='cart-dropdown'>
         <div className='cart-items'>
             {cartItems.length
@@ -21,7 +22,10 @@ const CartDropdown = ({ cartItems, history }) => (
                 <span className='empty-message'>Your cart is empty</span>
             }
         </div>
-        <CustomButton onClick={() => history.push('/checkout')}>Go to Checkout</CustomButton>
+        <CustomButton onClick={() => {
+            history.push('/checkout');
+            toggleCartHidden();
+        }}>Go to Checkout</CustomButton>
     </div>
 );
 
@@ -35,6 +39,14 @@ const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems
 });
 
+// Cart Dropdown component will do some Actions to change the hidden property of the cart in the store
+// Dispatch state to all Reducers
+const mapDispatchToProps = dispatch => ({
+    // setCurrentUser(user) - return an Action object
+    // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
+    toggleCartHidden: () => dispatch(toggleCartHidden())
+});
 
 
-export default withRouter(connect(mapStateToProps)(CartDropdown));
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropdown));
