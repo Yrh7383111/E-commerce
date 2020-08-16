@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { createStructuredSelector } from "reselect";
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
-import {selectCartItemsCount} from "../../redux/cart/cart.selectors";
+import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
 import './cart-icon.styles.scss';
 
 
@@ -20,9 +21,11 @@ const CartIcon = ({ toggleCartHidden, itemCount }) => (
 
 // Cart Icon component needs total number of quantities from cartItems prop
 // Retrieve props from store
-const mapStateToProps = state => ({
+const mapStateToProps = createStructuredSelector({
     // Caching - Memoization on Cart Icon component
-    itemCount: selectCartItemsCount(state)
+
+    // Same as itemCount: selectCartItemsCount(state)
+    itemCount: selectCartItemsCount
 });
 
 // Cart Icon component will do some Actions to change the hidden property of the cart in the store
