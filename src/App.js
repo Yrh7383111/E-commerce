@@ -81,8 +81,8 @@ class App extends React.Component
 
 // App component needs currentUser prop
 // Retrieve props from store
-const mapStateToProps = ({ user }) => ({
-    currentUser: user.currentUser
+const mapStateToProps = ({ user: { currentUser } }) => ({
+    currentUser: currentUser
 });
 
 // App component will do some Actions to change the currentUser property of the user in the store

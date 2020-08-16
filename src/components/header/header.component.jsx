@@ -10,7 +10,8 @@ import './header.styles.scss';
 
 
 
-// Object destructing - this.props
+// Destructing
+// this.props -> { currentUser, hidden }
 const Header = ({ currentUser, hidden }) => (
     <div className='header'>
         <Link className='logo-container' to='/'>

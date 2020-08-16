@@ -6,6 +6,9 @@ import './cart-icon.styles.scss';
 
 
 
+// Cart Icon component
+// Object destructing
+// this.props -> { toggleCartHidden }
 const CartIcon = ({ toggleCartHidden }) => (
     <div className='cart-icon' onClick={toggleCartHidden}>
         <ShoppingIcon className='shopping-icon' />
