@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 
 
 // Return an object
+// currentState - user object
 // Action - { type: string , payload: any }
 const userReducer = (currentState = INITIAL_STATE, action) => {
     const type = action.type;
@@ -18,9 +19,9 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
     {
         return {
             // The order matters!!!
-            // Spread (Keep) all the states
+            // Spread (Keep) all the properties in user
             ...currentState,
-            // Overwrite currentUser state
+            // Overwrite currentUser property
             currentUser: action.payload
         };
     }

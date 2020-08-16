@@ -6,7 +6,7 @@ import './cart-item.styles.scss';
 // Cart Item component
 // Object destructing
 // this.props -> { item: { imageUrl, name, price, quantity } }
-const CartItem = ({ item: { imageUrl, name, price, quantity } }) => (
+const CartItem = ({ cartItem: { imageUrl, name, price, quantity } }) => (
     <div className='cart-item'>
         <img src={imageUrl} alt='item' />
 
