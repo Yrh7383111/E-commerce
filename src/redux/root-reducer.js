@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import userReducer from './user/user.reducer';
 import cartReducer from "./cart/cart.reducer";
+import directoryReducer from "./directory/directory.reducer";
 
 
 
@@ -10,7 +11,8 @@ import cartReducer from "./cart/cart.reducer";
 // Combine all small Reducers into Root Reducers
 const rootReducer = combineReducers({
     user: userReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    directory: directoryReducer
 });
 
 // Redux browser Local Storage configuration

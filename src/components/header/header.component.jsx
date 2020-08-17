@@ -54,7 +54,7 @@ const mapStateToProps = createStructuredSelector({
     // Same as currentUser: selectCurrentUser(state)
     currentUser: selectCurrentUser,
     hidden: selectCartHidden
-})
+});
 
 
 

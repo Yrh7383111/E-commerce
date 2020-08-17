@@ -3,7 +3,7 @@ import { addItemToCart, removeItemFromCart } from "./cart.utils";
 
 
 
-// Initial state of hidden
+// Initial state of cart state
 const INITIAL_STATE = {
     hidden: true,
     cartItems: []

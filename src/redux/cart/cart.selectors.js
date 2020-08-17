@@ -7,6 +7,7 @@ import { createSelector } from 'reselect';
 // Retrieve cart property from store
 const selectCart = state => state.cart;
 
+
 // Retrieve cartItems from cart
 export const selectCartItems = createSelector(
     // Input selector
@@ -23,6 +24,7 @@ export const selectCartHidden = createSelector(
     cart => cart.hidden
 );
 
+
 // Calculate total number of quantities from cartItems
 export const selectCartItemsCount = createSelector(
     // Input selector
@@ -32,7 +34,7 @@ export const selectCartItemsCount = createSelector(
 );
 
 // Calculate total price from cartItems
-export const selectCartTotal = createSelector(
+export const selectCartItemsTotal = createSelector(
     // Input selector
     [selectCartItems],
     // Output

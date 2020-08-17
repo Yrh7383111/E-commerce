@@ -2,7 +2,7 @@ import { UserActionTypes } from "./user.types";
 
 
 
-// Initial state of currentUser
+// Initial state of user state
 const INITIAL_STATE = {
     currentUser: null
 };
