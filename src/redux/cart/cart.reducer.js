@@ -1,5 +1,5 @@
 import { CartActionTypes } from "./cart.types";
-import { addItemToCart } from "./cart.utils";
+import { addItemToCart, removeItemFromCart } from "./cart.utils";
 
 
 
@@ -34,6 +34,16 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             ...currentState,
             // Spread (Keep) all the existing cart items and add the new one
             cartItems: addItemToCart(currentState.cartItems, action.payload)
+        };
+    }
+    else if (type === CartActionTypes.REMOVE_ITEM)
+    {
+        return {
+            // The order matters!!!
+            // Spread (Keep) all the properties in cart
+            ...currentState,
+            // Spread (Keep) all the existing cart items and decrease the quantity
+            cartItems: removeItemFromCart(currentState.cartItems, action.payload)
         };
     }
     else if (type === CartActionTypes.CLEAR_ITEMS)

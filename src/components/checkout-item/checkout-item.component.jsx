@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { clearItems } from "../../redux/cart/cart.actions";
+import { addItem,  removeItem, clearItems } from "../../redux/cart/cart.actions";
 import './checkout-item.styles.scss';
 
 
@@ -8,7 +8,7 @@ import './checkout-item.styles.scss';
 // Checkout component
 // Object destructing
 // this.props -> { name, imageUrl, price, quantity }
-const CheckoutItem = ({ cartItem, clearItems }) => {
+const CheckoutItem = ({ cartItem, addItem, removeItem, clearItems }) => {
     // Object destructing
     const { imageUrl, name, quantity, price } = cartItem;
 
@@ -18,7 +18,15 @@ const CheckoutItem = ({ cartItem, clearItems }) => {
                 <img src={imageUrl} alt='item' />
             </div>
             <span className='name'>{name}</span>
-            <span className='quantity'>{quantity}</span>
+            <span className='quantity'>
+                <div className='arrow' onClick={() => removeItem(cartItem)}>
+                  &#10094;
+                </div>
+                <span className='value'>{quantity}</span>
+                <div className='arrow' onClick={() => addItem(cartItem)}>
+                  &#10095;
+                </div>
+            </span>
             <span className='price'>{price}</span>
             <div className='remove-button' onClick={() => clearItems(cartItem)}>&#10005;</div>
         </div>
@@ -28,8 +36,10 @@ const CheckoutItem = ({ cartItem, clearItems }) => {
 // Checkout Item component will do some Actions to change the cartItems property of the cart in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
-    // clearItems(item) - return an Action object
     // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
+    // addItemToCart(cartItem) - return an Action object
+    addItem: cartItem => dispatch(addItem(cartItem)),
+    removeItem: cartItem => dispatch(removeItem(cartItem)),
     clearItems: cartItem => dispatch(clearItems(cartItem))
 });
 

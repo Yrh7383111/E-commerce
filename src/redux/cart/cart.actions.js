@@ -13,6 +13,12 @@ export const addItem = cartItem => ({
     payload: cartItem
 });
 
+// Return an Action object that tells Cart Reducer to decrease the quantity of a cartItem
+export const removeItem = cartItem => ({
+    type: CartActionTypes.REMOVE_ITEM,
+    payload: cartItem
+});
+
 // Return an Action object that tells Cart Reduce to clear a cartItem
 export const clearItems = cartItem => ({
     type: CartActionTypes.CLEAR_ITEMS,
