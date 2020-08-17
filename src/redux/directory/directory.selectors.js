@@ -8,7 +8,7 @@ import { createSelector } from 'reselect';
 const selectDirectory = state => state.directory;
 
 
-// Retrieve sections from
+// Retrieve sections from directory
 export const selectDirectorySections = createSelector(
     // Input selector
     [selectDirectory],
