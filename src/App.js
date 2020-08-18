@@ -86,9 +86,10 @@ class App extends React.Component
 // App component needs currentUser prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
-    // Caching - Memoization on Cart Dropdown component
+    // Caching - Memoization
 
     // Same as currentUser: selectCurrentUser(state)
+    // If state.user doesn't change, memoize currentUser
     currentUser: selectCurrentUser
 });
 

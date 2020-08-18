@@ -1,17 +1,40 @@
 import { createSelector } from 'reselect';
+import memoize from 'lodash.memoize';
 
 
 
 // Caching - Memoization
 
+const COLLECTION_ID_MAP= {
+  hats: 1,
+  sneakers: 2,
+  jackets: 3,
+  womens: 4,
+  mens: 5
+};
+
+
 // Retrieve shop property from store
 const selectShop = state => state.shop;
 
 
-// Retrieve sections from directory
+// Retrieve collections from shop
+// Caching - Memoization
+// If state.shop doesn't change, memoize output selector
 export const selectCollections = createSelector(
     // Input selector
     [selectShop],
-    // Output
+    // Output selector
     shop => shop.collections
 );
+
+// Retrieve a specific collection based on URL parameter
+// Currying function (nested function) - one function only takes one argument
+// Caching - Memoization
+// If collectionUrlParam was memoized before, return the memoized output selector
+export const selectCollection = memoize(collectionUrlParam => createSelector(
+    // Input selector
+    [selectCollections],
+    // Output selector
+    collections => collections.find(collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam])
+));

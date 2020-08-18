@@ -39,6 +39,15 @@ const Header = ({ currentUser, hidden }) => (
                     SIGN IN
                 </Link>
             }
+            {
+                currentUser
+                    ?
+                <div className='option'>
+                    {currentUser.displayName}
+                </div>
+                    :
+                ''
+            }
             <CartIcon />
         </div>
         { hidden ? null : <CartDropdown /> }
@@ -49,10 +58,12 @@ const Header = ({ currentUser, hidden }) => (
 // Header component needs currentUser prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
-    // Caching - Memoization on Header component
+    // Caching - Memoization
 
     // Same as currentUser: selectCurrentUser(state)
+    // If state.user doesn't change, memoize currentUser
     currentUser: selectCurrentUser,
+    // If state.cart doesn't change, memoize hidden
     hidden: selectCartHidden
 });
 
