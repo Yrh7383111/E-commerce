@@ -13,7 +13,6 @@ const CollectionPreview = ({ title, items }) => (
 
         <div className='preview'>
             {items.filter((item, index) => index < 4)
-                // Object destructing
                 .map(item => (
                     <CollectionItem key={item.id} item={item} />
                 ))}
