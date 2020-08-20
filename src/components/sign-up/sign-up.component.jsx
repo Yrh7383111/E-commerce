@@ -69,7 +69,6 @@ class SignUp extends React.Component {
 
     // Rendering
     render() {
-        // Object destructing
         const { displayName, email, password, confirmPassword } = this.state;
 
         return (

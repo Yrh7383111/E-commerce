@@ -56,7 +56,6 @@ class SignIn extends React.Component {
     // Rendering
     render()
     {
-        // Object destructing
         const { email, password } = this.state;
 
         return (

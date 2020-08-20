@@ -7,7 +7,6 @@ import './collection.styles.scss';
 
 
 const CollectionPage = ({ collection }) => {
-    // Object destructing
     const { title, items } = collection;
 
     return (

@@ -9,8 +9,8 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import CheckoutPage from "./pages/checkout/checkout.component";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 import './App.css';
-import {selectCurrentUser} from "./redux/user/user.selectors";
 
 
 

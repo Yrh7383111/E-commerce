@@ -10,7 +10,6 @@ import './collection-item.styles.scss';
 // Destructing
 // this.props -> { name, imageUrl, price }
 const CollectionItem = ({ item, addItem }) => {
-    // Object destructing
     const { name, price, imageUrl } = item;
 
     return (

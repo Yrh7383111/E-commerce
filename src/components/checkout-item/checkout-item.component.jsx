@@ -9,7 +9,6 @@ import './checkout-item.styles.scss';
 // Object destructing
 // this.props -> { name, imageUrl, price, quantity }
 const CheckoutItem = ({ cartItem, addItem, removeItem, clearItems }) => {
-    // Object destructing
     const { imageUrl, name, quantity, price } = cartItem;
 
     return (
