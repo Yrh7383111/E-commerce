@@ -15,7 +15,6 @@ const CollectionPreview = ({ title, items }) => (
             {items.filter((item, index) => index < 4)
                 // Object destructing
                 .map(item => (
-                    // ...otherProps - remaining properties in item with the same name passed through
                     <CollectionItem key={item.id} item={item} />
                 ))}
         </div>
