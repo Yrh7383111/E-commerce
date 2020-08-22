@@ -18,6 +18,8 @@ const StripeCheckoutButton = ({ price }) => {
                         image='https://svgshare.com/i/CUz.svg'
                         name='E Commerce'
                         description={`Your total is $${price}`}
+                        alipay
+                        bitcoin
                         amount={priceForStripe}
                         billingAddress
                         shippingAddress
