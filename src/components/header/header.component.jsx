@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // ReactComponent indicates we want to build a React component that renders an SVG.
@@ -9,49 +8,55 @@ import CartIcon from "../cart-icon /cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
-import './header.styles.scss';
+import {
+    HeaderContainer,
+    LogoContainer,
+    OptionDivContainer,
+    OptionLinkContainer,
+    OptionsContainer
+} from "./header.styles";
 
 
 
 // Destructing
 // this.props -> { currentUser, hidden }
 const Header = ({ currentUser, hidden }) => (
-    <div className='header'>
-        <Link className='logo-container' to='/'>
+    <HeaderContainer>
+        <LogoContainer to='/'>
             <Logo className='logo' />
-        </Link>
+        </LogoContainer>
 
-        <div className='options'>
-            <Link className='option' to='/shop'>
+        <OptionsContainer>
+            <OptionLinkContainer to='/shop'>
                 SHOP
-            </Link>
-            <Link className='option' to='/shop'>
+            </OptionLinkContainer>
+            <OptionLinkContainer to='/shop'>
                 CONTACT
-            </Link>
+            </OptionLinkContainer>
             {
                 currentUser
                     ?
-                <div className='option' onClick={() => auth.signOut()}>
+                <OptionLinkContainer onClick={() => auth.signOut()}>
                     SIGN OUT
-                </div>
+                </OptionLinkContainer>
                     :
-                <Link className='option' to='/signin'>
+                <OptionLinkContainer to='/signin'>
                     SIGN IN
-                </Link>
+                </OptionLinkContainer>
             }
             {
                 currentUser
                     ?
-                <div className='option'>
+                <OptionDivContainer>
                     {currentUser.displayName}
-                </div>
+                </OptionDivContainer>
                     :
                 ''
             }
             <CartIcon />
-        </div>
+        </OptionsContainer>
         { hidden ? null : <CartDropdown /> }
-    </div>
+    </HeaderContainer>
 );
 
 
