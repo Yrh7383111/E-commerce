@@ -8,7 +8,6 @@ import './collection-item.styles.scss';
 
 // Collection Item component
 // Destructing
-// this.props -> { name, imageUrl, price }
 const CollectionItem = ({ item, addItem }) => {
     const { name, price, imageUrl } = item;
 

@@ -11,7 +11,6 @@ import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import {
     HeaderContainer,
     LogoContainer,
-    OptionDivContainer,
     OptionLinkContainer,
     OptionsContainer
 } from "./header.styles";
@@ -36,7 +35,7 @@ const Header = ({ currentUser, hidden }) => (
             {
                 currentUser
                     ?
-                <OptionLinkContainer onClick={() => auth.signOut()}>
+                <OptionLinkContainer as='div' onClick={() => auth.signOut()}>
                     SIGN OUT
                 </OptionLinkContainer>
                     :
@@ -47,9 +46,9 @@ const Header = ({ currentUser, hidden }) => (
             {
                 currentUser
                     ?
-                <OptionDivContainer>
+                <OptionLinkContainer as='div'>
                     {currentUser.displayName}
-                </OptionDivContainer>
+                </OptionLinkContainer>
                     :
                 ''
             }
