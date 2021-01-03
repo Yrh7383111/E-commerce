@@ -2,7 +2,7 @@ import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-import { SignUpContainer, SignUpTitleContainer } from "./sign-up.styles";
+import { SignUpContainer, TitleContainer } from "./sign-up.styles";
 
 
 
@@ -73,7 +73,7 @@ class SignUp extends React.Component {
 
         return (
             <SignUpContainer>
-                <SignUpTitleContainer>I do not have a account</SignUpTitleContainer>
+                <TitleContainer>I do not have a account</TitleContainer>
                 <span>Sign up with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>

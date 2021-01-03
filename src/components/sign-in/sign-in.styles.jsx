@@ -10,12 +10,12 @@ export const SignInContainer = styled.div`
 `;
 
 // Sign In Title Container
-export const SignInTitleContainer = styled.h2`
+export const TitleContainer = styled.h2`
   margin: 10px 0;
 `;
 
 // Sign In Buttons Container
-export const SignInButtonsContainer = styled.div`
+export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
