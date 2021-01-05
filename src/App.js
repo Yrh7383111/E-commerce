@@ -10,6 +10,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import CheckoutPage from "./pages/checkout/checkout.component";
 import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectCollectionForPreview } from "./redux/shop/shop.selectors";
 import './App.css';
 
 
@@ -90,7 +91,8 @@ const mapStateToProps = createStructuredSelector({
 
     // Same as currentUser: selectCurrentUser(state)
     // If state.user doesn't change, memoize currentUser
-    currentUser: selectCurrentUser
+    currentUser: selectCurrentUser,
+    collectionForPreview: selectCollectionForPreview
 });
 
 // App component will do some Actions to change the currentUser property of the user in the store

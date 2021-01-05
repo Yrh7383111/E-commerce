@@ -27,13 +27,13 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         return;
 
     // Else
-    // Query Reference (Controller) - object that represents the current place in the database
-    // Only Query Reference can perform CRUD operations
-    const userRef = firestore.doc(`users/${userAuth.uid}`);
-    // Query Snapshot
+    // Document Reference - object that represents the current place in the database
+    // Only Reference can perform CRUD operations
+    const userReference = firestore.doc(`users/${userAuth.uid}`);
+    // Document Snapshot
     // Actual data in the database
     // CRUD - Retrieve
-    const userSnapShot = await userRef.get();
+    const userSnapShot = await userReference.get();
 
     // If there is no user with associated uid exists in the database
     // Then, persist one
@@ -46,7 +46,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         try
         {
             // CRUD - Create
-            await userRef.set({
+            await userReference.set({
                 createdAt,
                 displayName,
                 email,
@@ -59,7 +59,41 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         }
     }
 
-    return userRef;
+    return userReference;
+};
+
+// Add collection and it corresponding documents
+export const addCollectionAndDocuments = async (collectionKey, collection) => {
+    // Get the reference
+    const collectionReference = firestore.collection(collectionKey);
+    // Bach request
+    const batch = firestore.batch();
+
+    collection.forEach(document => {
+        // Create a new Document Reference
+        const documentReference = collectionReference.doc();
+        batch.set(documentReference, document);
+    });
+
+    // Commit batch
+    // Possible asynchronous function
+    return await batch.commit();
+};
+
+
+export const transformCollectionsSnapShot = collectionsSnapShot => {
+    const transformedCollections = collectionsSnapShot.docs.map(docSnapShot => {
+        const { title, items } = docSnapShot.data();
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: docSnapShot.id,
+            title,
+            items
+        };
+    });
+
+    // Save the collection in an object
+    return transformedCollections.map((accumulator, document) => accumulator[document.title.toLowerCase()] = document);
 };
 
 

@@ -28,7 +28,7 @@ export const selectCollection = memoize(collectionUrlParam => createSelector(
     // Input selector
     [selectCollections],
     // Output selector
-    collections => collections[collectionUrlParam]
+    collections => collections ? collections[collectionUrlParam] : null
 ));
 
 // Return an array of collection objects
@@ -39,5 +39,5 @@ export const selectCollectionForPreview = createSelector(
     [selectCollections],
     // Output selector
     // Object.keys(object) - convert an object to an array
-    collections => Object.keys(collections).map(key => collections[key])
+    collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 );
