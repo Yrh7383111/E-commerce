@@ -16,6 +16,7 @@ export const TitleContainer = styled.h1`
 
   &:hover {
     color: grey;
+    cursor: pointer;
   }
 `;
 

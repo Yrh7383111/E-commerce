@@ -10,8 +10,8 @@ export const CollectionPageContainer = styled.div`
 
 // Title Container
 export const TitleContainer = styled.h2`
-  display: flex;
-  flex-direction: column;
+  font-size: 38px;
+  margin: 0 auto 30px;
 `;
 
 // Items Container

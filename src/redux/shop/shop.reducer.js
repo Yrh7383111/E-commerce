@@ -1,4 +1,5 @@
 import { ShopActionTypes } from "./shop.types";
+import SHOP_DATA from './shop.data';
 
 
 
@@ -21,7 +22,7 @@ const shopReducer = (currentState = INITIAL_STATE, action) => {
             // Spread (Keep) all the properties in shop
             ...currentState,
             collections: action.payload
-        }
+        };
     }
     // Default case
     else {

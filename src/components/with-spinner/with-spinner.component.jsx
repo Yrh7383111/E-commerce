@@ -6,7 +6,7 @@ import { SpinnerContainer, SpinnerOverlayContainer } from './with-spinner.styles
 // Higher Order Component
 // Spinner component
 // WrappedComponent - component
-const WithSpinner = WrappedComponent => {
+const WithSpinner = Component => {
     const spinner = ({ isLoading, ...otherProps }) => {
         if (isLoading)
         {
@@ -18,7 +18,7 @@ const WithSpinner = WrappedComponent => {
         }
         else {
             return (
-                <WrappedComponent {...otherProps} />
+                <Component {...otherProps} />
             )
         }
     };
