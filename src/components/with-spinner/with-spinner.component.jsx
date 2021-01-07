@@ -7,7 +7,8 @@ import { SpinnerContainer, SpinnerOverlayContainer } from './with-spinner.styles
 // Spinner component
 // WrappedComponent - component
 const WithSpinner = Component => {
-    const spinner = ({ isLoading, ...otherProps }) => {
+    // Return functional component
+    const Spinner = ({ isLoading, ...otherProps }) => {
         if (isLoading)
         {
             return (
@@ -23,7 +24,7 @@ const WithSpinner = Component => {
         }
     };
 
-    return spinner;
+    return Spinner;
 };
 
 

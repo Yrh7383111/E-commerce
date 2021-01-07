@@ -6,10 +6,17 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     // cartItemToAdd exists in the cartItems array
     if (existingCartItem)
     {
-        return cartItems.map(cartItem =>
-            cartItem.id === cartItemToAdd.id
-                ? { ...cartItem, quantity: cartItem.quantity + 1 }
-                : cartItem);
+        // Entire cart items
+        return cartItems.map(cartItem => {
+            // Single cart item
+            if (cartItem.id === cartItemToAdd.id)
+            {
+                return { ...cartItem, quantity: cartItem.quantity + 1 };
+            }
+            else {
+                return cartItem;
+            }
+        })
     }
     // cartItemToAdd doesn't exist in the cartItems array
     else {
@@ -32,9 +39,16 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
     }
     // cartItemToAdd exists in the cartItems array, and the quantity is more than one
     else {
-        return cartItems.map(cartItem =>
-            cartItem.id === cartItemToRemove.id
-                ? { ...cartItem, quantity: cartItem.quantity - 1 }
-                : cartItem);
+        // Entire cart items
+        return cartItems.map(cartItem => {
+            // Single cart item
+            if (cartItem.id === cartItemToRemove.id)
+            {
+                return { ...cartItem, quantity: cartItem.quantity - 1 };
+            }
+            else {
+                return cartItem;
+            }
+        })
     }
 };

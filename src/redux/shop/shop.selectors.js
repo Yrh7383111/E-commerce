@@ -31,7 +31,7 @@ export const selectCollection = memoize(collectionUrlParam => createSelector(
     collections => (collections ? collections[collectionUrlParam] : null)
 ));
 
-// Return an array of collection objects
+// Retrieve an array of collection objects
 // Caching - Memoization
 // If state.shop doesn't change, memoize output selector
 export const selectCollectionForPreview = createSelector(
@@ -40,4 +40,20 @@ export const selectCollectionForPreview = createSelector(
     // Output selector
     // Object.keys(object) - convert an object to an array
     collections => (collections ? Object.keys(collections).map(key => collections[key]) : [])
+);
+
+// Retrieve isFetching
+// Caching - Memoization
+// If state.shop doesn't change, memoize output selector
+export const selectIsCollectionFetching = createSelector(
+    [selectShop],
+    shop => shop.isFetching
+);
+
+// Caching - Memoization
+// If state.shop doesn't change, memoize output selector
+export const selectIsCollectionLoaded = createSelector(
+    [selectShop],
+    // If collections is null, return false
+    shop => !!shop.collections
 );

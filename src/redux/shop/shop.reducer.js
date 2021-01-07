@@ -1,11 +1,12 @@
 import { ShopActionTypes } from "./shop.types";
-import SHOP_DATA from './shop.data';
 
 
 
 // Initial state of shop state
 const INITIAL_STATE = {
-    collections: null
+    collections: null,
+    isFetching: false,
+    errorMessage: undefined
 };
 
 
@@ -15,13 +16,36 @@ const INITIAL_STATE = {
 const shopReducer = (currentState = INITIAL_STATE, action) => {
     const type = action.type;
 
-    if (type === ShopActionTypes.UPDATE_COLLECTIONS)
+    // Starting fetching
+    if (type === ShopActionTypes.FETCH_COLLECTIONS_START)
     {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in shop
             ...currentState,
+            // isFetching: true
+        };
+    }
+    // Success
+    else if (type === ShopActionTypes.FETCH_COLLECTIONS_SUCCESS)
+    {
+        return {
+            // The order matters!!!
+            // Spread (Keep) all the properties in shop
+            ...currentState,
+            isFetching: false,
             collections: action.payload
+        };
+    }
+    // Failure
+    else if (type === ShopActionTypes.FETCH_COLLECTIONS_FAILURE)
+    {
+        return {
+            // The order matters!!!
+            // Spread (Keep) all the properties in shop
+            ...currentState,
+            isFetching: false,
+            errorMessage: action.payload
         };
     }
     // Default case

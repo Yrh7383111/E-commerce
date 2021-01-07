@@ -93,8 +93,8 @@ export const transformCollectionsSnapShot = collectionsSnapShot => {
     });
 
     // Save the collection in an object
-    return transformedCollections.reduce((accumulator, collection) => {
-        accumulator[collection.title.toLowerCase()] = collection;
+    return transformedCollections.reduce((accumulator, document) => {
+        accumulator[document.title.toLowerCase()] = document;
         return accumulator;
     }, {});
 };
