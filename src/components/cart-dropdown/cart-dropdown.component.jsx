@@ -34,7 +34,6 @@ const CartDropdown = ({ cartItems, history, toggleCartHidden }) => (
 );
 
 
-// Cart Dropdown component needs cartItems prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
     // Caching - Memoization on Cart Dropdown component
@@ -43,7 +42,6 @@ const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems
 });
 
-// Cart Dropdown component will do some Actions to change the hidden property of the cart in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
     // setCurrentUser(user) - return an Action object

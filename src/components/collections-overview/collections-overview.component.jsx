@@ -7,7 +7,7 @@ import { CollectionsOverviewContainer } from "./collections-overview.styles";
 
 
 
-const CollectionOverview = ({ collections }) => (
+const CollectionsOverview = ({ collections }) => (
     <CollectionsOverviewContainer>
         {/* Object destructing */}
         {/* ...otherProps - remaining properties in collection with the same name passed through */}
@@ -18,15 +18,14 @@ const CollectionOverview = ({ collections }) => (
 );
 
 
-// Collections Overview component needs sections prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
-    // Caching - Memoization on Directory component
+    // Caching - Memoization
 
-    // Same as sections: selectDirectorySections(state)
-    collections: selectCollectionForPreview
+    // If state.shop doesn't change, memoize collections
+    collections: state => selectCollectionForPreview(state)
 });
 
 
 
-export default connect(mapStateToProps)(CollectionOverview);
+export default connect(mapStateToProps)(CollectionsOverview);

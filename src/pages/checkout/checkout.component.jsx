@@ -53,14 +53,14 @@ const CheckoutPage = ({ cartItems, total }) => (
 );
 
 
-// Header component needs currentUser prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
     // Caching - Memoization on Header component
 
-    // Same as cartItems: selectCartItems(state)
-    cartItems: selectCartItems,
-    total: selectCartItemsTotal
+    // If state.cart doesn't change, memoize cartItems
+    cartItems: state => selectCartItems(state),
+    // If state.cart doesn't change, memoize total
+    total: state => selectCartItemsTotal(state)
 })
 
 

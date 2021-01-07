@@ -34,7 +34,6 @@ const CheckoutItem = ({ cartItem, addItem, removeItem, clearItems }) => {
 )};
 
 
-// Checkout Item component will do some Actions to change the cartItems property of the cart in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
     // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers

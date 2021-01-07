@@ -59,16 +59,14 @@ const Header = ({ currentUser, hidden }) => (
 );
 
 
-// Header component needs currentUser prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
     // Caching - Memoization
 
-    // Same as currentUser: selectCurrentUser(state)
     // If state.user doesn't change, memoize currentUser
-    currentUser: selectCurrentUser,
+    currentUser: state => selectCurrentUser(state),
     // If state.cart doesn't change, memoize hidden
-    hidden: selectCartHidden
+    hidden: state => selectCartHidden(state)
 });
 
 

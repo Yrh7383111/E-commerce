@@ -18,16 +18,14 @@ const CartIcon = ({ toggleCartHidden, itemCount }) => (
 );
 
 
-// Cart Icon component needs total number of quantities from cartItems prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
     // Caching - Memoization on Cart Icon component
 
-    // Same as itemCount: selectCartItemsCount(state)
-    itemCount: selectCartItemsCount
+    // If state.cart doesn't change, memoize itemCount
+    itemCount: state => selectCartItemsCount(state)
 });
 
-// Cart Icon component will do some Actions to change the hidden property of the cart in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
     // setCurrentUser(user) - return an Action object

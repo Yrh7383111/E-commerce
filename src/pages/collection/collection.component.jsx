@@ -21,7 +21,6 @@ const CollectionPage = ({ collection }) => {
 )};
 
 
-// Collection needs currentUser prop
 // Retrieve props from store
 // ownProps = this.props
 const mapStateToProps = (state, ownProps) => ({

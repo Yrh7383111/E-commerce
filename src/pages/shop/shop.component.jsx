@@ -1,14 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux'
-import CollectionOverview from "../../components/collections-overview/collections-overview.component";
-import CollectionPage from "../collection/collection.component";
-import WithSpinner from "../../components/with-spinner/with-spinner.component";
-import { createStructuredSelector } from "reselect";
-import { selectIsCollectionFetching, selectIsCollectionLoaded } from "../../redux/shop/shop.selectors";
 import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
-const CollectionsOverviewWithSpinner = WithSpinner(CollectionOverview);
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+import CollectionPageContainer from "../collection/collection.container";
+import CollectionsOverviewContainer from "../../components/collections-overview/collections-overview.container";
 
 
 
@@ -22,32 +17,24 @@ class ShopPage extends React.Component {
 
     // Rendering
     render() {
-        const { match, isCollectionFetching, isCollectionLoaded } = this.props;
+        const { match } = this.props;
         return (
             <div className='shop-page'>
                 <Route exact path={`${match.path}`}
-                       render={otherProps => (<CollectionsOverviewWithSpinner isLoading={isCollectionFetching} {...otherProps} />)}/>
+                       component={CollectionsOverviewContainer} />
                 <Route path={`${match.path}/:collectionId`}
-                       render={otherProps => (<CollectionPageWithSpinner isLoading={!isCollectionLoaded} {...otherProps} />)}/>
+                       component={CollectionPageContainer} />
             </div>
         );
     }
 }
 
 
-// App component needs currentUser prop
-// Retrieve props from store
-const mapStateToProps = createStructuredSelector({
-    isCollectionFetching: selectIsCollectionFetching,
-    isCollectionLoaded: selectIsCollectionLoaded
-});
-
-
-// App component will do some Actions to change the cartItems property of the cart in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
     fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
+
+export default connect(null, mapDispatchToProps)(ShopPage);

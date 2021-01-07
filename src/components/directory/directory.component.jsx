@@ -20,13 +20,12 @@ const Directory = ({ sections }) => (
 );
 
 
-// Directory component needs sections prop
 // Retrieve props from store
 const mapStateToProps = createStructuredSelector({
     // Caching - Memoization on Directory component
 
-    // Same as sections: selectDirectorySections(state)
-    sections: selectDirectorySections
+    // If state.directory doesn't change, memoize sections
+    sections: state => selectDirectorySections(state)
 });
 
 

@@ -30,10 +30,9 @@ const CollectionItem = ({ item, addItem }) => {
 )};
 
 
-// App component will do some Actions to change the cartItems property of the cart in the store
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
-        addItem: item => dispatch(addItem(item))
+    addItem: cartItem => dispatch(addItem(cartItem))
 });
 
 
