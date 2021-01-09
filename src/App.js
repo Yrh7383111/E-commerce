@@ -6,8 +6,6 @@ import HomePage from './pages/homepage/homepage.component';
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { setCurrentUser } from './redux/user/user.actions';
 import CheckoutPage from "./pages/checkout/checkout.component";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { selectCollectionForPreview } from "./redux/shop/shop.selectors";
@@ -25,26 +23,26 @@ class App extends React.Component
     // Called when the component is first mounted
     componentDidMount()
     {
-        const { setCurrentUser } = this.props;
-
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-            // If userAuth exists
-            // Then set the state of currentUser
-            if (userAuth)
-            {
-                const userRef = await createUserProfileDocument(userAuth);
-
-                userRef.onSnapshot(snapShot => {
-                    setCurrentUser({
-                        id: snapShot.id,
-                        ...snapShot.data()
-                    });
-                });
-            }
-            else {
-                setCurrentUser(userAuth);
-            }
-        });
+        // const { setCurrentUser } = this.props;
+        //
+        // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+        //     // If userAuth exists
+        //     // Then set the state of currentUser
+        //     if (userAuth)
+        //     {
+        //         const userReference = await createUserProfileDocument(userAuth);
+        //
+        //         userReference.onSnapshot(userSnapShot => {
+        //             setCurrentUser({
+        //                 id: userSnapShot.id,
+        //                 ...userSnapShot.data()
+        //             });
+        //         });
+        //     }
+        //     else {
+        //         setCurrentUser(userAuth);
+        //     }
+        // });
     }
 
 
@@ -96,9 +94,6 @@ const mapStateToProps = createStructuredSelector({
 
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
-    // setCurrentUser(user) - return an Action object
-    // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
-    setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
 

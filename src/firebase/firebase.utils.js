@@ -105,10 +105,10 @@ export const firestore = firebase.firestore();
 
 
 // Google account auth configurations
-const GoogleAuthProvider = new firebase.auth.GoogleAuthProvider();
-GoogleAuthProvider.setCustomParameters({ prompt: 'select_account' });
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
 
-export const signInWithGoogle = () => auth.signInWithPopup(GoogleAuthProvider);
+export const signInWithGoogle = () => auth.signInWithPopup(googleAuthProvider);
 
 
 
