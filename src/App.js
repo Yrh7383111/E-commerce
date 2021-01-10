@@ -8,7 +8,6 @@ import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
 import { selectCurrentUser } from "./redux/user/user.selectors";
-import { selectCollectionForPreview } from "./redux/shop/shop.selectors";
 import './App.css';
 
 
@@ -23,26 +22,7 @@ class App extends React.Component
     // Called when the component is first mounted
     componentDidMount()
     {
-        // const { setCurrentUser } = this.props;
-        //
-        // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-        //     // If userAuth exists
-        //     // Then set the state of currentUser
-        //     if (userAuth)
-        //     {
-        //         const userReference = await createUserProfileDocument(userAuth);
-        //
-        //         userReference.onSnapshot(userSnapShot => {
-        //             setCurrentUser({
-        //                 id: userSnapShot.id,
-        //                 ...userSnapShot.data()
-        //             });
-        //         });
-        //     }
-        //     else {
-        //         setCurrentUser(userAuth);
-        //     }
-        // });
+
     }
 
 
@@ -88,14 +68,9 @@ const mapStateToProps = createStructuredSelector({
 
     // Same as currentUser: selectCurrentUser(state)
     // If state.user doesn't change, memoize currentUser
-    currentUser: selectCurrentUser,
-    collectionForPreview: selectCollectionForPreview
-});
-
-// Dispatch state to all Reducers
-const mapDispatchToProps = dispatch => ({
+    currentUser: selectCurrentUser
 });
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

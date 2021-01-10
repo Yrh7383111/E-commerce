@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { auth } from "../../firebase/firebase.utils";
 import { ButtonsContainer, SignInContainer, TitleContainer } from "./sign-in.styles";
-import { googleSignInStart } from "../../redux/user/user.actions";
+import { emailSignInStart, googleSignInStart } from "../../redux/user/user.actions";
 
 
 
@@ -38,20 +37,9 @@ class SignIn extends React.Component {
 
         // Object destructing
         const { email, password } = this.state;
+        const { emailSignInStart } = this.props;
 
-        try
-        {
-            // Firebase Authentication
-            // Sign in with email and password
-            await auth.signInWithEmailAndPassword(email, password);
-
-            // Clean up the data in each field
-            this.setState({ email: '', password: '' });
-        }
-        catch (error)
-        {
-            console.log(error);
-        }
+        emailSignInStart(email, password);
     };
 
 
@@ -94,7 +82,8 @@ class SignIn extends React.Component {
 
 // Dispatch state to all Reducers
 const mapDispatchToProps = dispatch => ({
-    googleSignInStart: () => dispatch(googleSignInStart())
+    googleSignInStart: () => dispatch(googleSignInStart()),
+    emailSignInStart: (email, password) => dispatch(emailSignInStart({ email: email, password: password }))
 });
 
 
