@@ -39,7 +39,8 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
     }
     // Failure
     else if (type === UserActionTypes.SIGN_IN_FAILURE ||
-                 UserActionTypes.SIGN_OUT_FAILURE)
+                      UserActionTypes.SIGN_OUT_FAILURE ||
+                      UserActionTypes.SIGN_UP_FAILURE)
     {
         return {
             // The order matters!!!

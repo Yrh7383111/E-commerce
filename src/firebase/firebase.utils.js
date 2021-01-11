@@ -41,21 +41,21 @@ export const createUserProfileDocument = async (user, additionalData) => {
     {
         const createdAt = new Date();
         // Object destructing
-        const { displayName, email } = user;
+        const { email, displayName } = user;
 
         try
         {
             // CRUD - Create
             await userReference.set({
-                createdAt,
-                displayName,
                 email,
+                displayName,
+                createdAt,
                 ...additionalData
             });
         }
         catch (error)
         {
-            console.log(error);
+            console.log(error.message);
         }
     }
 

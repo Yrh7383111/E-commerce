@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from "react-redux";
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import { SignUpContainer, TitleContainer } from "./sign-up.styles";
+import { signUpStart } from "../../redux/user/user.actions";
 
 
 
@@ -35,41 +36,22 @@ class SignUp extends React.Component {
         event.preventDefault();
 
         // Object destructing
-        const { displayName, email, password, confirmPassword } = this.state;
+        const { email, password, displayName, confirmPassword } = this.state;
+        const { signUpStart } = this.props;
 
         if (password !== confirmPassword)
         {
-            console.log("Passwords don't match")
+            alert("Passwords don't match")
             return;
         }
         // Else
-        try
-        {
-            // Firebase Authentication
-            // Object destructing
-            // Create an account with email and password by using Firebase built-in function
-            const { user } = await auth.createUserWithEmailAndPassword(email, password);
-
-            // Firebase Authentication
-            // Persist data in the database
-            await createUserProfileDocument(user, { displayName });
-
-            // Clean up forms
-            this.setState({
-                displayName: '',
-                email: '',
-                password: '',
-                confirmPassword: ''
-            });
-        } catch (error) {
-            console.error(error);
-        }
+        signUpStart(email, password, displayName);
     };
 
 
     // Rendering
     render() {
-        const { displayName, email, password, confirmPassword } = this.state;
+        const { email, password, displayName, confirmPassword } = this.state;
 
         return (
             <SignUpContainer>
@@ -108,5 +90,12 @@ class SignUp extends React.Component {
 }
 
 
+// Dispatch Actions to all Reducers
+const mapDispatchToProps = dispatch => ({
+    signUpStart: (email, password, displayName) => dispatch(signUpStart({
+                  email: email, password: password, displayName: displayName }))
+});
 
-export default SignUp;
+
+
+export default connect(null, mapDispatchToProps)(SignUp);

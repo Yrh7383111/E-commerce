@@ -14,8 +14,8 @@ export function* clearCartSignOut()
 
 // Generator function - return a generator object
 // yield - wait until complete, like await
-// Listen for UserActionTypes.EMAIL_SIGN_IN_START Action
-// And call clearCartSignOut Saga
+// Listen for EMAIL_SIGN_IN_START Action
+// Pass returned Action object from SIGN_OUT_SUCCESS, and call clearCartSignOut Saga
 export function* cleanCartSignOutStart()
 {
     // takeLatest - cancel all the generator functions except the last

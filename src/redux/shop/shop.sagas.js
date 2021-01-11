@@ -28,8 +28,8 @@ export function* fetchCollections()
 
 // Generator function - return a generator object
 // yield - wait until complete, like await
-// Listen for ShopActionTypes.FETCH_COLLECTIONS_START
-// fetchCollections generator takes in the Action object returned from ShopActionTypes.FETCH_COLLECTIONS_START
+// Listen for FETCH_COLLECTIONS_START
+// Pass returned Action object from FETCH_COLLECTIONS_START, and call fetchCollections Saga
 export function* fetchCollectionsStart()
 {
     // takeLatest - cancel all the generator functions except the last
@@ -38,5 +38,7 @@ export function* fetchCollectionsStart()
 
 // Combine all sagas into one saga
 export function* shopSagas() {
-    yield all([call(fetchCollectionsStart)]);
+    yield all([
+        call(fetchCollectionsStart)
+    ]);
 }
