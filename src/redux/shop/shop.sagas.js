@@ -26,9 +26,10 @@ export function* fetchCollections()
     }
 }
 
-// Generator function
-// Return a generator object
+// Generator function - return a generator object
 // yield - wait until complete, like await
+// Listen for ShopActionTypes.FETCH_COLLECTIONS_START
+// fetchCollections generator takes in the Action object returned from ShopActionTypes.FETCH_COLLECTIONS_START
 export function* fetchCollectionsStart()
 {
     // takeLatest - cancel all the generator functions except the last

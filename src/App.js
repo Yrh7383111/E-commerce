@@ -8,6 +8,7 @@ import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
 import { selectCurrentUser } from "./redux/user/user.selectors";
+import { checkCurrentUser } from "./redux/user/user.actions";
 import './App.css';
 
 
@@ -22,7 +23,9 @@ class App extends React.Component
     // Called when the component is first mounted
     componentDidMount()
     {
-
+        // Check current user session
+        const { checkCurrentUser } = this.props;
+        checkCurrentUser();
     }
 
 
@@ -71,6 +74,11 @@ const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser
 });
 
+// Dispatch Actions to all Reducers
+const mapDispatchToProps = dispatch => ({
+    checkCurrentUser: () => dispatch(checkCurrentUser())
+});
 
 
-export default connect(mapStateToProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

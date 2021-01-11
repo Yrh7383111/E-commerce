@@ -1,4 +1,5 @@
 import { UserActionTypes } from "./user.types";
+import {User} from "firebase";
 
 
 
@@ -15,7 +16,7 @@ const INITIAL_STATE = {
 const userReducer = (currentState = INITIAL_STATE, action) => {
     const type = action.type;
 
-    // Sign-in is successful
+    // Success
     if (type === UserActionTypes.SIGN_IN_SUCCESS)
     {
         return {
@@ -27,8 +28,20 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
             errorMessage: null
         };
     }
-    // Sign-in is failure
-    if (type === UserActionTypes.SIGN_IN_FAILURE)
+    else if (type === UserActionTypes.SIGN_OUT_SUCCESS)
+    {
+        return {
+            // The order matters!!!
+            // Spread (Keep) all the properties in user
+            ...currentState,
+            // Overwrite currentUser property
+            currentUser: null,
+            errorMessage: null
+        };
+    }
+    // Failure
+    else if (type === UserActionTypes.SIGN_IN_FAILURE ||
+                 UserActionTypes.SIGN_OUT_FAILURE)
     {
         return {
             // The order matters!!!

@@ -80,7 +80,7 @@ class SignIn extends React.Component {
 }
 
 
-// Dispatch state to all Reducers
+// Dispatch Actions to all Reducers
 const mapDispatchToProps = dispatch => ({
     googleSignInStart: () => dispatch(googleSignInStart()),
     emailSignInStart: (email, password) => dispatch(emailSignInStart({ email: email, password: password }))

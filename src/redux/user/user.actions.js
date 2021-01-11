@@ -24,3 +24,24 @@ export const signInFailure = errorMessage => ({
     type: UserActionTypes.SIGN_IN_FAILURE,
     payload: errorMessage
 });
+
+// Return an Action object that tells User Reducer to check current user
+export const checkCurrentUser = () => ({
+    type: UserActionTypes.CHECK_CURRENT_USER
+});
+
+// Return an Action object that tells User Reducer to start sign-out
+export const signOutStart = () => ({
+    type: UserActionTypes.SIGN_OUT_START,
+});
+
+// Return an Action object that tells User Reducer sign-out is successful
+export const signOutSuccess = () => ({
+    type: UserActionTypes.SIGN_OUT_SUCCESS,
+});
+
+// Return an Action object that tells User Reducer sign-out is failure
+export const signOutFailure = errorMessage => ({
+    type: UserActionTypes.SIGN_OUT_FAILURE,
+    payload: errorMessage
+});

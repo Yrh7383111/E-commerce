@@ -30,7 +30,7 @@ class ShopPage extends React.Component {
 }
 
 
-// Dispatch state to all Reducers
+// Dispatch Actions to all Reducers
 const mapDispatchToProps = dispatch => ({
     fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
 });

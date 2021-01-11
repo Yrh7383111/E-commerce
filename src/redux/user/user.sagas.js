@@ -1,7 +1,7 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
 import { UserActionTypes } from './user.types';
-import { auth, createUserProfileDocument, googleAuthProvider } from "../../firebase/firebase.utils";
-import { signInFailure, signInSuccess } from "./user.actions";
+import {auth, createUserProfileDocument, getCurrentUser, googleAuthProvider} from "../../firebase/firebase.utils";
+import { signInFailure, signInSuccess, signOutSuccess, signOutFailure} from "./user.actions";
 
 
 
@@ -32,7 +32,7 @@ export function* googleSignIn()
     try
     {
         const { user } = yield auth.signInWithPopup(googleAuthProvider);
-        getUserSnapshot(user);
+        yield getUserSnapshot(user);
     }
     catch(error)
     {
@@ -41,11 +41,10 @@ export function* googleSignIn()
     }
 }
 
-// Generator function
-// Return a generator object
+// Generator function - return a generator object
 // yield - wait until complete, like await
-// yield - wait until complete, like await
-// googleSignInStart generator takes in the Action object returned from UserActionTypes.GOOGLE_SIGN_IN_START
+// Listen for UserActionTypes.GOOGLE_SIGN_IN_START
+// googleSignIn generator takes in the Action object returned from UserActionTypes.GOOGLE_SIGN_IN_START
 export function* googleSignInStart()
 {
     // takeLatest - cancel all the generator functions except the last
@@ -60,7 +59,7 @@ export function* emailSignIn({ payload: { email, password } })
     try
     {
         const { user } = yield auth.signInWithEmailAndPassword(email, password);
-        getUserSnapshot(user);
+        yield getUserSnapshot(user);
     }
     catch(error)
     {
@@ -69,14 +68,69 @@ export function* emailSignIn({ payload: { email, password } })
     }
 }
 
-// Generator function
-// Return a generator object
+// Generator function - return a generator object
 // yield - wait until complete, like await
+// Listen for UserActionTypes.EMAIL_SIGN_IN_START
 // emailSignIn generator takes in the Action object returned from UserActionTypes.EMAIL_SIGN_IN_START
 export function* emailSignInStart()
 {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, emailSignIn);
+}
+
+// Generator function - return a generator object
+// yield - wait until complete, like await
+export function* isCurrentUserAuthenticated()
+{
+    try
+    {
+        const user = yield getCurrentUser();
+        if (!user)
+            return;
+        // Else
+        yield getUserSnapshot(user);
+    }
+    catch (error)
+    {
+        yield put(signInFailure(error.message));
+    }
+}
+
+// Generator function - return a generator object
+// yield - wait until complete, like await
+// Listen for UserActionTypes.CHECK_CURRENT_USER
+// isCurrentUserAuthenticated generator takes in the Action object returned from UserActionTypes.CHECK_CURRENT_USER
+export function* checkCurrentUserStart()
+{
+    // takeLatest - cancel all the generator functions except the last
+    yield takeLatest(UserActionTypes.CHECK_CURRENT_USER, isCurrentUserAuthenticated);
+}
+
+// Generator function
+// Return a generator object
+// yield - wait until complete, like await
+export function* signOut()
+{
+    try
+    {
+        yield auth.signOut();
+        yield put(signOutSuccess());
+    }
+    catch(error)
+    {
+        // put - saga dispatch
+        yield put(signOutFailure(error.message));
+    }
+}
+
+// Generator function - return a generator object
+// yield - wait until complete, like await
+// Listen for UserActionTypes.SIGN_OUT_START
+// signOut generator takes in the Action object returned from UserActionTypes.SIGN_OUT_START
+export function* signOutStart()
+{
+    // takeLatest - cancel all the generator functions except the last
+    yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut);
 }
 
 
@@ -85,6 +139,8 @@ export function* emailSignInStart()
 export function* userSagas() {
     yield all([
       call(googleSignInStart),
-      call(emailSignInStart)
+      call(emailSignInStart),
+      call(checkCurrentUserStart),
+      call(signOutStart)
     ]);
 }

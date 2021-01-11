@@ -34,7 +34,7 @@ const CheckoutItem = ({ cartItem, addItem, removeItem, clearItems }) => {
 )};
 
 
-// Dispatch state to all Reducers
+// Dispatch Actions to all Reducers
 const mapDispatchToProps = dispatch => ({
     // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
     // addItemToCart(cartItem) - return an Action object

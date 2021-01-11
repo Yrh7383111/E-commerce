@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // ReactComponent indicates we want to build a React component that renders an SVG.
 import { ReactComponent as Logo } from '../../assets/crown.svg';
-import { auth } from "../../firebase/firebase.utils";
 import CartIcon from "../cart-icon /cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { signOutStart } from "../../redux/user/user.actions";
 import {
     HeaderContainer,
     LogoContainer,
@@ -19,7 +19,7 @@ import {
 
 // Destructing
 // this.props -> { currentUser, hidden }
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden, signOutStart }) => (
     <HeaderContainer>
         <LogoContainer to='/'>
             <Logo className='logo' />
@@ -35,7 +35,7 @@ const Header = ({ currentUser, hidden }) => (
             {
                 currentUser
                     ?
-                <OptionLinkContainer as='div' onClick={() => auth.signOut()}>
+                <OptionLinkContainer as='div' onClick={signOutStart}>
                     SIGN OUT
                 </OptionLinkContainer>
                     :
@@ -69,7 +69,12 @@ const mapStateToProps = createStructuredSelector({
     hidden: state => selectCartHidden(state)
 });
 
+// Dispatch Actions to all Reducers
+const mapDispatchToProps = dispatch => ({
+    // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
+    signOutStart: () => dispatch(signOutStart())
+});
 
 
 // First parameter of connect() - If the component needs the props
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

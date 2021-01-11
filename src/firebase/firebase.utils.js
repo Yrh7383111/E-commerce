@@ -21,15 +21,15 @@ firebase.initializeApp(firebaseConfig);
 
 
 // Function to persist a new user in the database
-export const createUserProfileDocument = async (userAuth, additionalData) => {
+export const createUserProfileDocument = async (user, additionalData) => {
     // Safety check to ensure userAuth exists
-    if (!userAuth)
+    if (!user)
         return;
 
     // Else
     // Document Reference - object that represents the current place in the database
     // Only Reference can perform CRUD operations
-    const userReference = firestore.doc(`users/${userAuth.uid}`);
+    const userReference = firestore.doc(`users/${user.uid}`);
     // Document Snapshot
     // Actual data in the database
     // CRUD - Retrieve
@@ -41,7 +41,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     {
         const createdAt = new Date();
         // Object destructing
-        const { displayName, email } = userAuth;
+        const { displayName, email } = user;
 
         try
         {
@@ -80,7 +80,6 @@ export const addCollectionAndDocuments = async (collectionKey, collection) => {
     return await batch.commit();
 };
 
-
 export const transformCollectionsSnapShot = collectionsSnapShot => {
     const transformedCollections = collectionsSnapShot.docs.map(docSnapShot => {
         const { title, items } = docSnapShot.data();
@@ -97,6 +96,15 @@ export const transformCollectionsSnapShot = collectionsSnapShot => {
         accumulator[document.title.toLowerCase()] = document;
         return accumulator;
     }, {});
+};
+
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            unsubscribe();
+            resolve(user);
+        }, reject);
+    });
 };
 
 

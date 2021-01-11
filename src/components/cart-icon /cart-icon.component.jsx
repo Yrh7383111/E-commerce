@@ -26,9 +26,8 @@ const mapStateToProps = createStructuredSelector({
     itemCount: state => selectCartItemsCount(state)
 });
 
-// Dispatch state to all Reducers
+// Dispatch Actions to all Reducers
 const mapDispatchToProps = dispatch => ({
-    // setCurrentUser(user) - return an Action object
     // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
     toggleCartHidden: () => dispatch(toggleCartHidden())
 });

@@ -30,7 +30,7 @@ const CollectionItem = ({ item, addItem }) => {
 )};
 
 
-// Dispatch state to all Reducers
+// Dispatch Actions to all Reducers
 const mapDispatchToProps = dispatch => ({
     addItem: cartItem => dispatch(addItem(cartItem))
 });
