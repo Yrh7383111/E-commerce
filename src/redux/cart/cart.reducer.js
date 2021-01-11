@@ -56,6 +56,16 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             cartItems: currentState.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
         };
     }
+    else if (type === CartActionTypes.CLEAR_CART)
+    {
+        return {
+            // The order matters!!!
+            // Spread (Keep) all the properties in cart
+            ...currentState,
+            // Clear cartItems
+            cartItems: []
+        };
+    }
     // Default state
     else {
         return currentState;

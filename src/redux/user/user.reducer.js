@@ -23,7 +23,6 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
             // The order matters!!!
             // Spread (Keep) all the properties in user
             ...currentState,
-            // Overwrite currentUser property
             currentUser: action.payload,
             errorMessage: null
         };
@@ -34,7 +33,6 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
             // The order matters!!!
             // Spread (Keep) all the properties in user
             ...currentState,
-            // Overwrite currentUser property
             currentUser: null,
             errorMessage: null
         };
@@ -47,7 +45,6 @@ const userReducer = (currentState = INITIAL_STATE, action) => {
             // The order matters!!!
             // Spread (Keep) all the properties in user
             ...currentState,
-            // Overwrite currentUser property
             errorMessage: action.payload
         };
     }

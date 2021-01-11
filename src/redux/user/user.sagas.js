@@ -1,6 +1,6 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
 import { UserActionTypes } from './user.types';
-import {auth, createUserProfileDocument, getCurrentUser, googleAuthProvider} from "../../firebase/firebase.utils";
+import { auth, createUserProfileDocument, getCurrentUser, googleAuthProvider } from "../../firebase/firebase.utils";
 import { signInFailure, signInSuccess, signOutSuccess, signOutFailure} from "./user.actions";
 
 
@@ -43,8 +43,8 @@ export function* googleSignIn()
 
 // Generator function - return a generator object
 // yield - wait until complete, like await
-// Listen for UserActionTypes.GOOGLE_SIGN_IN_START
-// googleSignIn generator takes in the Action object returned from UserActionTypes.GOOGLE_SIGN_IN_START
+// Listen for UserActionTypes.GOOGLE_SIGN_IN_START Action
+// And call googleSignIn Saga
 export function* googleSignInStart()
 {
     // takeLatest - cancel all the generator functions except the last
@@ -70,8 +70,8 @@ export function* emailSignIn({ payload: { email, password } })
 
 // Generator function - return a generator object
 // yield - wait until complete, like await
-// Listen for UserActionTypes.EMAIL_SIGN_IN_START
-// emailSignIn generator takes in the Action object returned from UserActionTypes.EMAIL_SIGN_IN_START
+// Listen for UserActionTypes.EMAIL_SIGN_IN_START Action
+// And call emailSignIn Saga
 export function* emailSignInStart()
 {
     // takeLatest - cancel all the generator functions except the last
@@ -98,8 +98,8 @@ export function* isCurrentUserAuthenticated()
 
 // Generator function - return a generator object
 // yield - wait until complete, like await
-// Listen for UserActionTypes.CHECK_CURRENT_USER
-// isCurrentUserAuthenticated generator takes in the Action object returned from UserActionTypes.CHECK_CURRENT_USER
+// Listen for UserActionTypes.CHECK_CURRENT_USER Action
+// And call isCurrentUserAuthenticated Saga
 export function* checkCurrentUserStart()
 {
     // takeLatest - cancel all the generator functions except the last
@@ -125,8 +125,8 @@ export function* signOut()
 
 // Generator function - return a generator object
 // yield - wait until complete, like await
-// Listen for UserActionTypes.SIGN_OUT_START
-// signOut generator takes in the Action object returned from UserActionTypes.SIGN_OUT_START
+// Listen for UserActionTypes.SIGN_OUT_START Action
+// And call signOut Saga
 export function* signOutStart()
 {
     // takeLatest - cancel all the generator functions except the last

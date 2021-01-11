@@ -24,3 +24,8 @@ export const clearItems = cartItem => ({
     type: CartActionTypes.CLEAR_ITEMS,
     payload: cartItem
 });
+
+// Return an Action object that tells Cart Reduce to clear cart
+export const clearCart = () => ({
+    type: CartActionTypes.CLEAR_CART,
+});
