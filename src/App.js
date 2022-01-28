@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
@@ -12,56 +12,39 @@ import { checkCurrentUser } from "./redux/user/user.actions";
 import './App.css';
 
 
-
 // App component
-class App extends React.Component
-{
-    // Function - unsubscribe the current user
-    unsubscribeFromAuth = null;
-
-
-    // Called when the component is first mounted
-    componentDidMount()
-    {
-        // Check current user session
-        const { checkCurrentUser } = this.props;
+const App =  ({ checkCurrentUser, currentUser }) => {
+    // Called when
+    // 1. The component is first mounted
+    // 2. checkCurrentUser changes
+    useEffect(() => {
         checkCurrentUser();
-    }
-
-
-    // Called when the component is unmounted
-    componentWillUnmount()
-    {
-        this.unsubscribeFromAuth();
-    }
+    }, [checkCurrentUser]);
 
 
     // Rendering
-    render()
-    {
-        return (
-            <div>
-                {/* Header */}
-                <Header />
+    return (
+        <div>
+            {/* Header */}
+            <Header />
 
-                {/* Switch ensure when one Route matches, remaining won't be rendered */}
-                <Switch>
-                    {/* Only the first component passing to the route has access to Route props:  */}
-                    {/* history, location, match */}
-                    <Route exact path='/' component={HomePage} />
-                    <Route path='/shop' component={ShopPage} />
-                    <Route exact path='/checkout' component={CheckoutPage} />
-                    <Route exact path='/signin' render={() =>
-                        this.props.currentUser
-                            ?
+            {/* Switch ensure when one Route matches, remaining won't be rendered */}
+            <Switch>
+                {/* Only the first component passing to the route has access to Route props:  */}
+                {/* history, location, match */}
+                <Route exact path='/' component={HomePage} />
+                <Route path='/shop' component={ShopPage} />
+                <Route exact path='/checkout' component={CheckoutPage} />
+                <Route exact path='/signin' render={() =>
+                    currentUser
+                        ?
                         <Redirect to='/' />
-                            :
+                        :
                         <SignInAndSignUpPage />
-                    } />
-                </Switch>
-            </div>
-        );
-    }
+                } />
+            </Switch>
+        </div>
+    );
 }
 
 
@@ -78,7 +61,6 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
     checkCurrentUser: () => dispatch(checkCurrentUser())
 });
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
