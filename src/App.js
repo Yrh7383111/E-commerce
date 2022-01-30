@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from "reselect";
+import { useSelector, useDispatch } from 'react-redux';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
@@ -13,13 +12,21 @@ import './App.css';
 
 
 // App component
-const App =  ({ checkCurrentUser, currentUser }) => {
+const App =  () => {
+    // Retrieve props from store
+    // Caching - Memoization
+    // If state.user doesn't change, memoize currentUser
+    const currentUser = useSelector(selectCurrentUser);
+    // Dispatch Actions to all Reducers
+    const dispatch = useDispatch();
+
+
     // Called when
     // 1. The component is first mounted
     // 2. checkCurrentUser changes
     useEffect(() => {
-        checkCurrentUser();
-    }, [checkCurrentUser]);
+        dispatch(checkCurrentUser());
+    }, [dispatch]);
 
 
     // Rendering
@@ -48,19 +55,4 @@ const App =  ({ checkCurrentUser, currentUser }) => {
 }
 
 
-// Retrieve props from store
-const mapStateToProps = createStructuredSelector({
-    // Caching - Memoization
-
-    // Same as currentUser: selectCurrentUser(state)
-    // If state.user doesn't change, memoize currentUser
-    currentUser: selectCurrentUser
-});
-
-// Dispatch Actions to all Reducers
-const mapDispatchToProps = dispatch => ({
-    checkCurrentUser: () => dispatch(checkCurrentUser())
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
