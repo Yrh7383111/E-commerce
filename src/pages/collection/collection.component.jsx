@@ -8,7 +8,7 @@ import { CollectionPageContainer, ItemsContainer, TitleContainer } from "./colle
 
 
 const CollectionPage = () => {
-    const collectionId = useParams();
+    const { collectionId } = useParams();
     // Retrieve props from store
     // ownProps = this.props
     const collection = useSelector(selectCollection(collectionId));
