@@ -19,7 +19,7 @@ import {
 
 // Destructing
 // this.props -> { currentUser, hidden }
-const Header = ({ signOutStart }) => {
+const Header = () => {
     // Retrieve props from store
     // Caching - Memoization
     // If state.user doesn't change, memoize currentUser
