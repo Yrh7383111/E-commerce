@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 // ReactComponent indicates we want to build a React component that renders an SVG.
 import { ReactComponent as Logo } from '../../assets/crown.svg';
@@ -19,62 +19,57 @@ import {
 
 // Destructing
 // this.props -> { currentUser, hidden }
-const Header = ({ currentUser, hidden, signOutStart }) => (
-    <HeaderContainer>
-        <LogoContainer to='/'>
-            <Logo className='logo' />
-        </LogoContainer>
-
-        <OptionsContainer>
-            <OptionLinkContainer to='/shop'>
-                SHOP
-            </OptionLinkContainer>
-            <OptionLinkContainer to='/shop'>
-                CONTACT
-            </OptionLinkContainer>
-            {
-                currentUser
-                    ?
-                <OptionLinkContainer as='div' onClick={signOutStart}>
-                    SIGN OUT
-                </OptionLinkContainer>
-                    :
-                <OptionLinkContainer to='/signin'>
-                    SIGN IN
-                </OptionLinkContainer>
-            }
-            {
-                currentUser
-                    ?
-                <OptionLinkContainer as='div'>
-                    {currentUser.displayName}
-                </OptionLinkContainer>
-                    :
-                ''
-            }
-            <CartIcon />
-        </OptionsContainer>
-        { hidden ? null : <CartDropdown /> }
-    </HeaderContainer>
-);
-
-
-// Retrieve props from store
-const mapStateToProps = createStructuredSelector({
+const Header = ({ signOutStart }) => {
+    // Retrieve props from store
     // Caching - Memoization
-
     // If state.user doesn't change, memoize currentUser
-    currentUser: state => selectCurrentUser(state),
+    const currentUser = useSelector(selectCurrentUser);
     // If state.cart doesn't change, memoize hidden
-    hidden: state => selectCartHidden(state)
-});
+    const hidden = useSelector(selectCartHidden);
 
-// Dispatch Actions to all Reducers
-const mapDispatchToProps = dispatch => ({
+    // Dispatch Actions to all Reducers
     // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
-    signOutStart: () => dispatch(signOutStart())
-});
+    const dispatch = useDispatch();
 
 
-// First parameter of connect() - If the component needs the props
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+    return (
+        <HeaderContainer>
+            <LogoContainer to='/'>
+                <Logo className='logo' />
+            </LogoContainer>
+
+            <OptionsContainer>
+                <OptionLinkContainer to='/shop'>
+                    SHOP
+                </OptionLinkContainer>
+                <OptionLinkContainer to='/shop'>
+                    CONTACT
+                </OptionLinkContainer>
+                {
+                    currentUser
+                        ?
+                    <OptionLinkContainer as='div' onClick={() => dispatch(signOutStart())}>
+                        SIGN OUT
+                    </OptionLinkContainer>
+                        :
+                    <OptionLinkContainer to='/signin'>
+                        SIGN IN
+                    </OptionLinkContainer>
+                }
+                {
+                    currentUser
+                        ?
+                    <OptionLinkContainer as='div'>
+                        {currentUser.displayName}
+                    </OptionLinkContainer>
+                        :
+                    ''
+                }
+                <CartIcon />
+            </OptionsContainer>
+            { hidden ? null : <CartDropdown /> }
+        </HeaderContainer>
+)};
+
+
+export default Header;

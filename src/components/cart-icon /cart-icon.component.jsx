@@ -15,7 +15,11 @@ const CartIcon = () => {
     // Caching - Memoization on Cart Icon component
     // If state.cart doesn't change, memoize itemCount
     const itemCount = useSelector(selectCartItemsCount);
+
+    // Dispatch Actions to all Reducers
+    // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
     const dispatch = useDispatch();
+
 
     return (
         <CartIconContainer onClick={() => dispatch(toggleCartHidden())}>
