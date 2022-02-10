@@ -28,5 +28,4 @@ const WithSpinner = Component => {
 };
 
 
-
 export default WithSpinner;

@@ -22,5 +22,4 @@ const CollectionPreview = ({ title, items, routeName, history, match }) => (
 );
 
 
-
 export default withRouter(CollectionPreview);

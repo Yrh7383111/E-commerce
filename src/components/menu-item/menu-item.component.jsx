@@ -25,7 +25,6 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => (
 );
 
 
-
 // withRouter - avoids props tunneling
 // by providing access the props: history, location, match
 export default withRouter(MenuItem);
