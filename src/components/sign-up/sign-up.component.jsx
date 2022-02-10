@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import { SignUpContainer, TitleContainer } from "./sign-up.styles";
@@ -7,7 +7,7 @@ import { signUpStart } from "../../redux/user/user.actions";
 
 
 
-const  SignUp = ({ signUpStart }) => {
+const  SignUp = () => {
     // Component states
     const [userCredentials, setUserCredentials] = useState({
         displayName: '',
@@ -15,6 +15,10 @@ const  SignUp = ({ signUpStart }) => {
         password: '',
         confirmPassword: ''
     });
+
+    // Dispatch Actions to all Reducers
+    // dispatch - packs up the argument as an Action object, and deliveries it to all Reducers
+    const dispatch = useDispatch();
 
 
     // Helper functions
@@ -38,7 +42,11 @@ const  SignUp = ({ signUpStart }) => {
             return;
         }
         // Else
-        signUpStart(email, password, displayName);
+        dispatch(signUpStart({
+            email: email,
+            password: password,
+            displayName: displayName
+        }));
     };
 
 
@@ -79,12 +87,4 @@ const  SignUp = ({ signUpStart }) => {
 }
 
 
-// Dispatch Actions to all Reducers
-const mapDispatchToProps = dispatch => ({
-    signUpStart: (email, password, displayName) => dispatch(signUpStart({
-                  email: email, password: password, displayName: displayName }))
-});
-
-
-
-export default connect(null, mapDispatchToProps)(SignUp);
+export default SignUp;
