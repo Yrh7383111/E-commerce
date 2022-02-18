@@ -30,25 +30,25 @@ Features: Authentication, Caching, Stripe Payment
 ## Visualization
 
 ### Main Page
-![Main Page](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Main%20Page.png)
+![Main Page](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Main%20Page.png)
 
 ### Preview Page
-![Preview Page](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Preview%20Page.png)
+![Preview Page](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Preview%20Page.png)
 
 ### Overview Page
-![Overview Page](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Overview%20Page.png)
+![Overview Page](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Overview%20Page.png)
 
 ### Cart Page
-![Cart Page](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Cart.png)
+![Cart Page](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Cart.png)
 
 ### Checkout Page
-![Checkout Page](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Checkout.png)
+![Checkout Page](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Checkout.png)
 
 ### Stripe Payment Page
 1. Stripe Payment Page 1
-![Stripe Payment Page 1](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Stripe%20Payment%20%231.png)
+![Stripe Payment Page 1](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Stripe%20Payment%20%231.png)
 2. Stripe Payment Page 2
-![Stripe Payment Page 2](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Stripe%20Payment%20%232.png)
+![Stripe Payment Page 2](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Stripe%20Payment%20%232.png)
 
 ### Sign-in Page
-![Sign-in Page](https://github.com/Yrh7383111/E-commerce/blob/master/Visualizations/Sign-in.png)
+![Sign-in Page](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Sign-in.png)
