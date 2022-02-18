@@ -6,7 +6,7 @@ import 'firebase/auth';
 
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDz6ujTDViXPrpNZFPq0V1hxm-1_jan2Ak",
+    apiKey: process.env.API_KEY,
     authDomain: "e-commerce-7b83e.firebaseapp.com",
     databaseURL: "https://e-commerce-7b83e.firebaseio.com",
     projectId: "e-commerce-7b83e",
