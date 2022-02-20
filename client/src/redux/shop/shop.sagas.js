@@ -4,7 +4,6 @@ import { ShopActionTypes } from "./shop.types";
 import { fetchCollectionsFailure, fetchCollectionsSuccess } from "./shop.actions";
 
 
-
 // Generator function
 // Return a generator object
 // yield - wait until complete, like await

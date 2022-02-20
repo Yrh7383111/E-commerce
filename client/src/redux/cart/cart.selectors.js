@@ -1,7 +1,6 @@
 import { createSelector } from 'reselect';
 
 
-
 // Caching - Memoization
 
 // Retrieve cart property from store

@@ -1,7 +1,6 @@
 import { UserActionTypes } from "./user.types";
 
 
-
 // Return an Action object that tells User Reducer to start Google sign-in
 export const googleSignInStart = () => ({
     type: UserActionTypes.GOOGLE_SIGN_IN_START

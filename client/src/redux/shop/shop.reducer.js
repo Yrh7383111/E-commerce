@@ -1,7 +1,6 @@
 import { ShopActionTypes } from "./shop.types";
 
 
-
 // Initial state of shop state
 const INITIAL_STATE = {
     collections: null,

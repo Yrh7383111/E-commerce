@@ -7,7 +7,6 @@ import directoryReducer from "./directory/directory.reducer";
 import shopReducer from "./shop/shop.reducer";
 
 
-
 // State - object
 // Combine all small Reducers into Root Reducers
 const rootReducer = combineReducers({

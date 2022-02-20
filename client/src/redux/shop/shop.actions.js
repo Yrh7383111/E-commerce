@@ -1,7 +1,6 @@
 import { ShopActionTypes } from "./shop.types";
 
 
-
 // Return an Action object that tells Shop Reducer to start fetching
 export const fetchCollectionsStart = () => ({
     type: ShopActionTypes.FETCH_COLLECTIONS_START

@@ -1,7 +1,6 @@
 import { createSelector } from 'reselect';
 
 
-
 // Caching - Memoization
 
 // Retrieve user property from store

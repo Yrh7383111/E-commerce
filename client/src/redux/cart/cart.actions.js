@@ -1,7 +1,6 @@
 import { CartActionTypes } from "./cart.types";
 
 
-
 // Return an Action object that tells Cart Reducer to toggle hidden
 export const toggleCartHidden = () => ({
     type: CartActionTypes.TOGGLE_CART_HIDDEN

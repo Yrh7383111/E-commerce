@@ -4,7 +4,6 @@ import { userSagas } from "./user/user.sagas";
 import {cartSagas} from "./cart/cart.sagas";
 
 
-
 // Root saga
 export default function* rootSaga() {
     yield all([

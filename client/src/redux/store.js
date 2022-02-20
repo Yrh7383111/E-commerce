@@ -6,7 +6,6 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from "./root-saga";
 
 
-
 // Saga middleware for Action object after reducer
 const sagaMiddleware = createSagaMiddleware();
 

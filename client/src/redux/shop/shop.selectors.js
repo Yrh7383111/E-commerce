@@ -2,7 +2,6 @@ import { createSelector } from 'reselect';
 import memoize from 'lodash.memoize';
 
 
-
 // Caching - Memoization
 
 // Retrieve shop property from store
