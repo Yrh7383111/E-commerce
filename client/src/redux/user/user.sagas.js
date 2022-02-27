@@ -11,20 +11,16 @@ import {
 } from "./user.actions";
 
 
-
 // Generator function
 // Return a generator object
 // yield - wait until complete, like await
-export function* getUserSnapshot(user, additionalData)
-{
-    try
-    {
+export function* getUserSnapshot(user, additionalData) {
+    try {
         const userReference = yield call(createUserProfileDocument, user, additionalData)
         const userSnapshot = yield userReference.get();
         yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
     }
-    catch(error)
-    {
+    catch(error) {
         // put - saga dispatch
         yield put(signInFailure(error.message));
     }
@@ -33,15 +29,12 @@ export function* getUserSnapshot(user, additionalData)
 // Generator function
 // Return a generator object
 // yield - wait until complete, like await
-export function* googleSignIn()
-{
-    try
-    {
+export function* googleSignIn() {
+    try {
         const { user } = yield auth.signInWithPopup(googleAuthProvider);
         yield getUserSnapshot(user);
     }
-    catch(error)
-    {
+    catch(error) {
         // put - saga dispatch
         yield put(signInFailure(error.message));
     }
@@ -51,8 +44,7 @@ export function* googleSignIn()
 // yield - wait until complete, like await
 // Listen for GOOGLE_SIGN_IN_START Action
 // Pass returned Action object from GOOGLE_SIGN_IN_START, and call googleSignIn Saga
-export function* googleSignInStart()
-{
+export function* googleSignInStart() {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(UserActionTypes.GOOGLE_SIGN_IN_START, googleSignIn);
 }
@@ -60,15 +52,12 @@ export function* googleSignInStart()
 // Generator function
 // Return a generator object
 // yield - wait until complete, like await
-export function* emailSignIn({ payload: { email, password } })
-{
-    try
-    {
+export function* emailSignIn({ payload: { email, password } }) {
+    try {
         const { user } = yield auth.signInWithEmailAndPassword(email, password);
         yield getUserSnapshot(user);
     }
-    catch(error)
-    {
+    catch(error) {
         // put - saga dispatch
         yield put(signInFailure(error.message));
     }
@@ -78,26 +67,23 @@ export function* emailSignIn({ payload: { email, password } })
 // yield - wait until complete, like await
 // Listen for EMAIL_SIGN_IN_START Action
 // Pass returned Action object from EMAIL_SIGN_IN_START, and call emailSignIn Saga
-export function* emailSignInStart()
-{
+export function* emailSignInStart() {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, emailSignIn);
 }
 
 // Generator function - return a generator object
 // yield - wait until complete, like await
-export function* isCurrentUserAuthenticated()
-{
-    try
-    {
+export function* isCurrentUserAuthenticated() {
+    try {
         const user = yield getCurrentUser();
-        if (!user)
+        if (!user) {
             return;
+        }
         // Else
         yield getUserSnapshot(user);
     }
-    catch (error)
-    {
+    catch (error) {
         yield put(signInFailure(error.message));
     }
 }
@@ -106,8 +92,7 @@ export function* isCurrentUserAuthenticated()
 // yield - wait until complete, like await
 // Listen for CHECK_CURRENT_USER Action
 // Pass returned Action object returned from CHECK_CURRENT_USER, and call isCurrentUserAuthenticated Saga
-export function* checkCurrentUserStart()
-{
+export function* checkCurrentUserStart() {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(UserActionTypes.CHECK_CURRENT_USER, isCurrentUserAuthenticated);
 }
@@ -115,15 +100,12 @@ export function* checkCurrentUserStart()
 // Generator function
 // Return a generator object
 // yield - wait until complete, like await
-export function* signOut()
-{
-    try
-    {
+export function* signOut() {
+    try {
         yield auth.signOut();
         yield put(signOutSuccess());
     }
-    catch(error)
-    {
+    catch(error) {
         // put - saga dispatch
         yield put(signOutFailure(error.message));
     }
@@ -133,8 +115,7 @@ export function* signOut()
 // yield - wait until complete, like await
 // Listen for SIGN_OUT_START Action
 // Pass returned Action object from SIGN_OUT_START, and call signOut Saga
-export function* signOutStart()
-{
+export function* signOutStart() {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut);
 }
@@ -143,15 +124,12 @@ export function* signOutStart()
 // Return a generator object
 // yield - wait until complete, like await
 // Receive returned Action object from SIGN_UP_START
-export function* signUp({ payload: { email, password, displayName } })
-{
-    try
-    {
+export function* signUp({ payload: { email, password, displayName } }) {
+    try {
         const { user } = yield auth.createUserWithEmailAndPassword(email, password);
         yield put(signUpSuccess({ user: user, additionalData: { displayName: displayName } }));
     }
-    catch(error)
-    {
+    catch(error) {
         // put - saga dispatch
         yield put(signUpFailure(error.message));
     }
@@ -161,8 +139,7 @@ export function* signUp({ payload: { email, password, displayName } })
 // yield - wait until complete, like await
 // Listen for SIGN_UP_START Action
 // Pass returned Action object from SIGN_UP_START, and call signUp Saga
-export function* signUpStart()
-{
+export function* signUpStart() {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(UserActionTypes.SIGN_UP_START, signUp);
 }
@@ -171,14 +148,11 @@ export function* signUpStart()
 // Return a generator object
 // yield - wait until complete, like await
 // Receive returned Action object from SIGN_UP_START
-export function* signInAfterSignUp({ payload: { user, additionalData } })
-{
-    try
-    {
+export function* signInAfterSignUp({ payload: { user, additionalData } }) {
+    try {
         yield getUserSnapshot(user, additionalData);
     }
-    catch (error)
-    {
+    catch (error) {
         yield put(signInFailure(error.message))
     }
 }
@@ -187,12 +161,10 @@ export function* signInAfterSignUp({ payload: { user, additionalData } })
 // yield - wait until complete, like await
 // Listen for SIGN_UP_SUCCESS Action
 // Pass returned Action object from SIGN_UP_SUCCESS, and call signInAfterSignUp Saga
-export function* signInAfterSignUpStart()
-{
+export function* signInAfterSignUpStart() {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
 }
-
 
 
 // Combine all sagas into one saga

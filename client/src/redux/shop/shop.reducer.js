@@ -16,8 +16,7 @@ const shopReducer = (currentState = INITIAL_STATE, action) => {
     const type = action.type;
 
     // Starting fetching
-    if (type === ShopActionTypes.FETCH_COLLECTIONS_START)
-    {
+    if (type === ShopActionTypes.FETCH_COLLECTIONS_START) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in shop
@@ -25,8 +24,7 @@ const shopReducer = (currentState = INITIAL_STATE, action) => {
         };
     }
     // Success
-    else if (type === ShopActionTypes.FETCH_COLLECTIONS_SUCCESS)
-    {
+    else if (type === ShopActionTypes.FETCH_COLLECTIONS_SUCCESS) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in shop
@@ -36,8 +34,7 @@ const shopReducer = (currentState = INITIAL_STATE, action) => {
         };
     }
     // Failure
-    else if (type === ShopActionTypes.FETCH_COLLECTIONS_FAILURE)
-    {
+    else if (type === ShopActionTypes.FETCH_COLLECTIONS_FAILURE) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in shop
@@ -51,7 +48,6 @@ const shopReducer = (currentState = INITIAL_STATE, action) => {
         return currentState;
     }
 };
-
 
 
 export default shopReducer;

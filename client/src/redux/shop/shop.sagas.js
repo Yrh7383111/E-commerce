@@ -7,10 +7,8 @@ import { fetchCollectionsFailure, fetchCollectionsSuccess } from "./shop.actions
 // Generator function
 // Return a generator object
 // yield - wait until complete, like await
-export function* fetchCollections()
-{
-    try
-    {
+export function* fetchCollections() {
+    try {
         const collectionsReference = firestore.collection('collections');
         const collectionsSnapshot = yield collectionsReference.get();
         // call - function call
@@ -18,8 +16,7 @@ export function* fetchCollections()
         // put - saga dispatch
         yield put(fetchCollectionsSuccess(transformedCollectionsSnapShot))
     }
-    catch (error)
-    {
+    catch (error) {
         // put - saga dispatch
         yield put(fetchCollectionsFailure(error.message));
     }
@@ -29,8 +26,7 @@ export function* fetchCollections()
 // yield - wait until complete, like await
 // Listen for FETCH_COLLECTIONS_START
 // Pass returned Action object from FETCH_COLLECTIONS_START, and call fetchCollections Saga
-export function* fetchCollectionsStart()
-{
+export function* fetchCollectionsStart() {
     // takeLatest - cancel all the generator functions except the last
     yield takeLatest(ShopActionTypes.FETCH_COLLECTIONS_START, fetchCollections);
 }

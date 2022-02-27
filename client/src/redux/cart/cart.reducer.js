@@ -15,8 +15,7 @@ const INITIAL_STATE = {
 const cartReducer = (currentState = INITIAL_STATE, action) => {
     const type = action.type;
 
-    if (type === CartActionTypes.TOGGLE_CART_HIDDEN)
-    {
+    if (type === CartActionTypes.TOGGLE_CART_HIDDEN) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in cart
@@ -25,8 +24,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             hidden: !currentState.hidden
         };
     }
-    else if (type === CartActionTypes.ADD_ITEM)
-    {
+    else if (type === CartActionTypes.ADD_ITEM) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in cart
@@ -35,8 +33,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             cartItems: addItemToCart(currentState.cartItems, action.payload)
         };
     }
-    else if (type === CartActionTypes.REMOVE_ITEM)
-    {
+    else if (type === CartActionTypes.REMOVE_ITEM) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in cart
@@ -45,8 +42,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             cartItems: removeItemFromCart(currentState.cartItems, action.payload)
         };
     }
-    else if (type === CartActionTypes.CLEAR_ITEMS)
-    {
+    else if (type === CartActionTypes.CLEAR_ITEMS) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in cart
@@ -55,8 +51,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             cartItems: currentState.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
         };
     }
-    else if (type === CartActionTypes.CLEAR_CART)
-    {
+    else if (type === CartActionTypes.CLEAR_CART) {
         return {
             // The order matters!!!
             // Spread (Keep) all the properties in cart
@@ -70,7 +65,6 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
         return currentState;
     }
 };
-
 
 
 export default cartReducer;

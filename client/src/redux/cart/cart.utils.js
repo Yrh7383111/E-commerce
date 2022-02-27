@@ -4,13 +4,11 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToAdd.id);
 
     // cartItemToAdd exists in the cartItems array
-    if (existingCartItem)
-    {
+    if (existingCartItem) {
         // Entire cart items
         return cartItems.map(cartItem => {
             // Single cart item
-            if (cartItem.id === cartItemToAdd.id)
-            {
+            if (cartItem.id === cartItemToAdd.id) {
                 return { ...cartItem, quantity: cartItem.quantity + 1 };
             }
             else {
@@ -33,8 +31,7 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
     const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToRemove.id);
 
     // cartItemToAdd exists in the cartItems array, and the quantity is one
-    if (existingCartItem.quantity === 1)
-    {
+    if (existingCartItem.quantity === 1) {
         return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
     }
     // cartItemToAdd exists in the cartItems array, and the quantity is more than one
@@ -42,8 +39,7 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
         // Entire cart items
         return cartItems.map(cartItem => {
             // Single cart item
-            if (cartItem.id === cartItemToRemove.id)
-            {
+            if (cartItem.id === cartItemToRemove.id) {
                 return { ...cartItem, quantity: cartItem.quantity - 1 };
             }
             else {

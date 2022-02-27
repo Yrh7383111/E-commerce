@@ -3,7 +3,6 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 
-
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDz6ujTDViXPrpNZFPq0V1hxm-1_jan2Ak",
@@ -23,8 +22,9 @@ firebase.initializeApp(firebaseConfig);
 // Function to persist a new user in the database
 export const createUserProfileDocument = async (user, additionalData) => {
     // Safety check to ensure userAuth exists
-    if (!user)
+    if (!user) {
         return;
+    }
 
     // Else
     // Document Reference - object that represents the current place in the database
@@ -37,14 +37,12 @@ export const createUserProfileDocument = async (user, additionalData) => {
 
     // If there is no user with associated uid exists in the database
     // Then, persist one
-    if (!userSnapShot.exists)
-    {
+    if (!userSnapShot.exists) {
         const createdAt = new Date();
         // Object destructing
         const { email, displayName } = user;
 
-        try
-        {
+        try {
             // CRUD - Create
             await userReference.set({
                 email,
@@ -53,8 +51,7 @@ export const createUserProfileDocument = async (user, additionalData) => {
                 ...additionalData
             });
         }
-        catch (error)
-        {
+        catch (error) {
             console.log(error.message);
         }
     }
