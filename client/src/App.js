@@ -8,7 +8,7 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up
 import CheckoutPage from "./pages/checkout/checkout.component";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkCurrentUser } from "./redux/user/user.actions";
-import './App.css';
+import { GlobalStyle } from "./global.styles";
 
 
 // App component
@@ -32,6 +32,8 @@ const App =  () => {
     // Rendering
     return (
         <div>
+            <GlobalStyle />
+
             {/* Header */}
             <Header />
 
