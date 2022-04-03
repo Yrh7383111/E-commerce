@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Checkout Page Container
 export const CheckoutPageContainer = styled.div`
   width: 55%;

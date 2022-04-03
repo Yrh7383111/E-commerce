@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Menu Item Container
 export const MenuItemContainer = styled.div`
   height: ${({ size }) => (size ? '380px' : '240px')};
@@ -33,6 +32,10 @@ export const MenuItemContainer = styled.div`
 
   &:last-child {
     margin-left: 7.5px;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 `;
 

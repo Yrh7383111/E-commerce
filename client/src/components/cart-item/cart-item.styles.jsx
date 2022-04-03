@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Cart Item Container
 export const CartItemContainer = styled.div`
   width: 100%;

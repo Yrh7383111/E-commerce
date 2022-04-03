@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Spinner Overlay Container
 export const SpinnerOverlayContainer = styled.div`
   height: 60vh;

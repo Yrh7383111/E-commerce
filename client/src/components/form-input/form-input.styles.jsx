@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 
-
 // Variables
 const subColor = 'grey';
 const mainColor = 'black';

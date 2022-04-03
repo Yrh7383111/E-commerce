@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Checkout Item Container
 export const CheckoutItemContainer = styled.div`
   width: 100%;

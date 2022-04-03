@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Sign In Container
 export const SignInContainer = styled.div`
   width: 380px;

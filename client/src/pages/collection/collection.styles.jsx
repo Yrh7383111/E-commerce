@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Collection Page Container
 export const CollectionPageContainer = styled.div`
   display: flex;

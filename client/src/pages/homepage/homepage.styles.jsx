@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 // Home Page Container
 export const HomePageContainer = styled.div`
   display: flex;
