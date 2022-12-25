@@ -9,8 +9,7 @@ import { SpinnerContainer, SpinnerOverlayContainer } from './with-spinner.styles
 const WithSpinner = Component => {
     // Return functional component
     const Spinner = ({ isLoading, ...otherProps }) => {
-        if (isLoading)
-        {
+        if (isLoading) {
             return (
                 <SpinnerOverlayContainer>
                     <SpinnerContainer/>
