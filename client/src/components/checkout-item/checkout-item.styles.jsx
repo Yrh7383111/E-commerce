@@ -40,9 +40,11 @@ export const QuantityContainer = styled(InfoContainer)`
     margin: 0 10px;
   }
 `;
+QuantityContainer.displayName = 'QuantityContainer';
 
 // Checkout Item Remove Button Container
 export const RemoveButtonContainer = styled.div`
   padding-left: 12px;
   cursor: pointer;
 `;
+RemoveButtonContainer.displayName = 'RemoveButtonContainer';

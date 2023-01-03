@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1672710292820" clover="3.2.0">
+  <project timestamp="1672710292820" name="All files">
+    <metrics statements="160" coveredstatements="106" conditionals="10" coveredconditionals="0" methods="45" coveredmethods="12" elements="215" coveredelements="118" complexity="0" loc="160" ncloc="160" packages="19" files="27" classes="27"/>
+    <package name="components.cart-dropdown">
+      <metrics statements="14" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="cart-dropdown.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/cart-dropdown/cart-dropdown.component.jsx">
+        <metrics statements="8" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+      </file>
+      <file name="cart-dropdown.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/cart-dropdown/cart-dropdown.styles.jsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.cart-icon ">
+      <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="cart-icon.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/cart-icon /cart-icon.component.jsx">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+      <file name="cart-icon.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/cart-icon /cart-icon.styles.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.checkout-item">
+      <metrics statements="14" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <file name="checkout-item.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/checkout-item/checkout-item.component.jsx">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+      </file>
+      <file name="checkout-item.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/checkout-item/checkout-item.styles.jsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.collection-item">
+      <metrics statements="16" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="collection-item.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/collection-item/collection-item.component.jsx">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+      </file>
+      <file name="collection-styles.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/collection-item/collection-styles.styles.jsx">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="58" count="5" type="stmt"/>
+        <line num="62" count="5" type="stmt"/>
+        <line num="65" count="5" type="stmt"/>
+        <line num="69" count="5" type="stmt"/>
+        <line num="72" count="5" type="stmt"/>
+        <line num="86" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.collection-preview">
+      <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="collection-preview.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/collection-preview/collection-preview.component.jsx">
+        <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+      <file name="collection-preview.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/collection-preview/collection-preview.styles.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.collections-overview">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="collections-overview.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/collections-overview/collections-overview.component.jsx">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.custom-button">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="custom-button.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/custom-button/custom-button.component.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.directory">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="directory.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/directory/directory.component.jsx">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.form-input">
+      <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="form-input.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/form-input/form-input.component.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+      </file>
+      <file name="form-input.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/form-input/form-input.styles.jsx">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.header">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="header.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/header/header.styles.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.menu-item">
+      <metrics statements="11" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="menu-item.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/menu-item/menu-item.component.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+      <file name="menu-item.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/menu-item/menu-item.styles.jsx">
+        <metrics statements="9" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="68" count="3" type="stmt"/>
+        <line num="76" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.sign-in">
+      <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="sign-in.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/sign-in/sign-in.component.jsx">
+        <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.sign-up">
+      <metrics statements="14" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="sign-up.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/sign-up/sign-up.component.jsx">
+        <metrics statements="14" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.stripe-button">
+      <metrics statements="9" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="stripe-button.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/stripe-button/stripe-button.component.jsx">
+        <metrics statements="9" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.with-spinner">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="spinner.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/components/with-spinner/spinner.component.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.checkout">
+      <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="checkout.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/pages/checkout/checkout.component.jsx">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+      </file>
+      <file name="checkout.styles.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/pages/checkout/checkout.styles.jsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.collection">
+      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="collection.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/pages/collection/collection.component.jsx">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.homepage">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="homepage.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/pages/homepage/homepage.component.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.shop">
+      <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="shop.component.jsx" path="/Users/JacksonYin/Desktop/Javascript/E-commerce/client/src/pages/shop/shop.component.jsx">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

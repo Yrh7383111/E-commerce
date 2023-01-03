@@ -38,6 +38,7 @@ export const MenuItemContainer = styled.div`
     height: 200px;
   }
 `;
+MenuItemContainer.displayName = 'MenuItemContainer';
 
 // Background Image Container
 export const BackgroundImageContainer = styled.div`
@@ -47,6 +48,7 @@ export const BackgroundImageContainer = styled.div`
   background-position: center;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
+BackgroundImageContainer.displayName = 'BackgroundImageContainer';
 
 // Content Container
 export const ContentContainer = styled.div`

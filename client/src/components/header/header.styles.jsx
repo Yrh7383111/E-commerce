@@ -48,3 +48,4 @@ export const OptionLinkContainer = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
 `;
+OptionLinkContainer.displayName = 'OptionLinkContainer';

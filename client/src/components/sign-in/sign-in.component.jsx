@@ -6,7 +6,6 @@ import { ButtonsContainer, SignInContainer, TitleContainer } from "./sign-in.sty
 import { emailSignInStart, googleSignInStart } from "../../redux/user/user.actions";
 
 
-
 const SignIn = () => {
     // Component states
     const [userCredentials, setUserCredentials] = useState({

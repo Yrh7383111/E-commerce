@@ -12,6 +12,7 @@ export const CartIconContainer = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
+CartIconContainer.displayName = 'CartIconContainer';
 
 // Shopping Icon Container
 export const ShoppingIconContainer = styled(ShoppingIcon)`
@@ -26,3 +27,4 @@ export const ItemCountContainer = styled.span`
   font-weight: bold;
   bottom: 12px;
 `;
+ItemCountContainer.displayName = 'ItemCountContainer';

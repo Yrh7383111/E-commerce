@@ -43,6 +43,7 @@ export const ImageContainer = styled.div`
   margin-bottom: 5px;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
+ImageContainer.displayName = 'ImageContainer';
 
 // Collection Footer Container
 export const CollectionFooterContainer = styled.div`
@@ -58,12 +59,14 @@ export const NameContainer = styled.span`
   width: 90%;
   margin-bottom: 15px;
 `;
+NameContainer.displayName = 'NameContainer';
 
 // Price Container
 export const PriceContainer = styled.span`
   width: 10%;
   text-align: right;
 `;
+PriceContainer.displayName = 'PriceContainer';
 
 // Add To Cart Container
 export const AddToCartContainer = styled(CustomButton)`
@@ -80,3 +83,4 @@ export const AddToCartContainer = styled(CustomButton)`
     padding: 0 10px;
   }
 `;
+AddToCartContainer.displayName = 'AddToCartContainer';

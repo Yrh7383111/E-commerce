@@ -33,13 +33,17 @@ const CartDropdown = () => {
                     cartItems.map(cartItem => (
                         <CartItem key={cartItem.id} cartItem={cartItem}/>))
                     :
-                    <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
+                    <EmptyMessageContainer>
+                        Your cart is empty
+                    </EmptyMessageContainer>
                 }
             </CartItemsContainer>
             <GoToCheckoutContainer onClick={() => {
                 history.push('/checkout');
                 dispatch(toggleCartHidden());
-            }}>Go to Checkout</GoToCheckoutContainer>
+            }}>
+                Go to Checkout
+            </GoToCheckoutContainer>
         </CartDropdownContainer>
     );
 };

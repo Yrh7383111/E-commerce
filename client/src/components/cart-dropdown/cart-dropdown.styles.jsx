@@ -30,8 +30,10 @@ export const EmptyMessageContainer = styled.span`
   font-size: 18px;
   margin: 50px auto;
 `;
+EmptyMessageContainer.displayName = 'EmptyMessageContainer';
 
 // Empty Message Container
 export const GoToCheckoutContainer = styled(CustomButton)`
   margin-top: auto;
 `;
+GoToCheckoutContainer.displayName = 'GoToCheckoutContainer';

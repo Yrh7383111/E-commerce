@@ -41,6 +41,7 @@ export const TotalContainer = styled.div`
   margin-left: auto;
   font-size: 36px;
 `;
+TotalContainer.displayName = 'TotalContainer';
 
 // Warning Container
 export const WarningContainer = styled.div`

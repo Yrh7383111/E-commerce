@@ -10,7 +10,6 @@ import {
 } from "./collection-styles.styles";
 
 
-
 // Collection Item component
 // Destructing
 const CollectionItem = ({ item }) => {
@@ -28,7 +27,9 @@ const CollectionItem = ({ item }) => {
                 <PriceContainer>{price}</PriceContainer>
             </CollectionFooterContainer>
 
-            <AddToCartContainer inverted onClick={() => dispatch(addItem(item))}>Add to Cart</AddToCartContainer>
+            <AddToCartContainer inverted onClick={() => dispatch(addItem(item))}>
+                Add to Cart
+            </AddToCartContainer>
         </CollectionItemContainer>
 )};
 

@@ -9,7 +9,6 @@ import {
 } from "./menu-item.styles";
 
 
-
 // Menu Item component
 // Destructing
 // props -> { title, imageUrl, size, linkUrl }

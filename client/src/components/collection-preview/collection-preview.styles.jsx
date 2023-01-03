@@ -22,6 +22,7 @@ export const TitleContainer = styled.h1`
     cursor: pointer;
   }
 `;
+TitleContainer.displayName = 'TitleContainer';
 
 // Title Container
 export const PreviewContainer = styled.div`

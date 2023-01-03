@@ -1,10 +1,9 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CollectionItem from '../../components/collection-item/collection-item.component';
-import { selectCollection } from "../../redux/shop/shop.selectors";
-import { CollectionPageContainer, ItemsContainer, TitleContainer } from "./collection.styles";
-
+import { selectCollection } from '../../redux/shop/shop.selectors';
+import { CollectionPageContainer, ItemsContainer, TitleContainer } from './collection.styles';
 
 
 const CollectionPage = () => {

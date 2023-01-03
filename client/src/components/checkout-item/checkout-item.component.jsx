@@ -7,7 +7,6 @@ import {
 } from "./checkout-item.styles";
 
 
-
 // Checkout component
 // Object destructing
 const CheckoutItem = ({ cartItem }) => {
