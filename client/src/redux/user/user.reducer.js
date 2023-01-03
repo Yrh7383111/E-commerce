@@ -1,5 +1,4 @@
 import { UserActionTypes } from "./user.types";
-import {User} from "firebase";
 
 
 // Initial state of user state

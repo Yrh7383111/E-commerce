@@ -21,6 +21,7 @@ const shopReducer = (currentState = INITIAL_STATE, action) => {
             // The order matters!!!
             // Spread (Keep) all the properties in shop
             ...currentState,
+            isFetching: true
         };
     }
     // Success

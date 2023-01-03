@@ -1,5 +1,5 @@
 // Initial state of directory state
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
     sections: [
         {
             id: 1,
@@ -42,7 +42,6 @@ const INITIAL_STATE = {
 const directoryReducer = (currentState = INITIAL_STATE, action) => {
     return currentState;
 };
-
 
 
 export default directoryReducer;

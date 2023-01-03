@@ -1,6 +1,6 @@
 // Add a new cartItem
 export const addItemToCart = (cartItems, cartItemToAdd) => {
-    // Check if there the cartItemToAdd exists in the cartItems array
+    // Check if the cartItemToAdd exists in the cartItems array
     const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToAdd.id);
 
     // cartItemToAdd exists in the cartItems array
@@ -27,7 +27,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
 // Decrease the quantity of an existing cartItem
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
-    // Check if there the cartItemToAdd exists in the cartItems array
+    // Check if the cartItemToAdd exists in the cartItems array
     const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToRemove.id);
 
     // cartItemToAdd exists in the cartItems array, and the quantity is one
