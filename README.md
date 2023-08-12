@@ -1,5 +1,5 @@
 # E-commerce
-E-commerce is an e-commerce website which allow users to purchase products with cart module and checkout online.
+E-commerce is an e-commerce website which allows users to browse and purchase products with unique functionalities, including Google login, virtual cart and Stripe payment.
 
 
 ## Project Setup
@@ -23,7 +23,7 @@ Database: Firebase
 
 Back-end: Node.js, Express, JSX, and other npm packages
 
-Features: Authentication, Caching, Stripe Payment
+Features: Signup, Google Login, Cart and Stripe Payment
 ```
 
 
