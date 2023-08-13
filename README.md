@@ -1,5 +1,5 @@
 # E-commerce
-E-commerce is an e-commerce website which allows users to browse and purchase products with unique functionalities, including Google login, shopping cart and Stripe payment.
+E-commerce is an e-commerce website for consumers to browse and purchase products with unique functionalities such as third-party login, shopping cart and payment.
 
 
 ## Project Setup
