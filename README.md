@@ -45,9 +45,9 @@ Features: Google Login, Shopping Cart and Stripe Payment
 ![Checkout Page](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Checkout.png)
 
 ### Stripe Payment Page
-1. Stripe Payment Page 1
+#### Stripe Payment Page 1
 ![Stripe Payment Page 1](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Stripe%20Payment%20%231.png)
-2. Stripe Payment Page 2
+#### Stripe Payment Page 2
 ![Stripe Payment Page 2](https://raw.githubusercontent.com/Yrh7383111/E-commerce/master/visualizations/Stripe%20Payment%20%232.png)
 
 ### Sign-in Page
